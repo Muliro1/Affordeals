@@ -6,8 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <div> {{ message }} </div>
+        {% endfor %}
+    {% endif %} 
     <div>
-        <form action="/users/register" method="post">
+        <form action="/users/register" method="POST">
             {% csrf_token %}
             <legend> Join Today </legend>
             {{ form.as_p }}
