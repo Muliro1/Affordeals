@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.db.models.aggregates import Count
 from django.utils.html import format_html, urlencode
 from .models import Products, Address, SiteUser, Category, Order, OrderItem
+from django.urls import reverse
 
 
 admin.site.register(Address)
@@ -9,7 +10,7 @@ admin.site.register(Address)
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):
     autocomplete_fields = ['category']
-    list_display = ['name', 'price', 'category_name']
+    list_display = ['name', 'unit_price', 'category_name']
     list_per_page = 10
     list_select_related = ['category']
     search_fields = ['name']

@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.conf import settings
+from django.core.validators import MinValueValidator
 from django.db import models
+from uuid import uuid4
 
 
 class SiteUser(models.Model):
@@ -57,9 +59,14 @@ class Products(models.Model):
     """
     name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
-    image = models.ImageField(max_length=100)
+    image = models.ImageField(
+        upload_to='images/',  # Specify the upload directory
+        blank=True,           # Allow the field to be empty
+        null=True,            # Allow the database field to be null
+        help_text='Upload an image file (optional)'  # Optional help text for admin interface
+        )
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    unit_price = models.DecimalField(max_digits=6, decimal_places=2)
     quantity_in_stock = models.IntegerField()
 
 class Order(models.Model):
@@ -81,12 +88,40 @@ class Order(models.Model):
                         default=PAYMENT_STATUS_PENDING)
     siteuser = models.ForeignKey(SiteUser, on_delete=models.PROTECT)
 
+    class Meta:
+        permissions = [
+            ('cancel_order', 'Can cancel order')
+        ]
+
 
 class OrderItem(models.Model):
     """
     OrderItem Model.
     """
     quantity = models.PositiveIntegerField()
-    price = models.DecimalField(max_digits=8, decimal_places=2)
+    unit_price = models.DecimalField(max_digits=8, decimal_places=2)
     products = models.ForeignKey(Products, on_delete=models.PROTECT, related_name='orderitems')
     order = models.ForeignKey(Order, on_delete=models.PROTECT)
+
+
+class ShoppingCart(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid4)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class ShoppingCartItem(models.Model):
+    cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name='items')
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
+    quantity = models.PositiveSmallIntegerField(
+        validators=[MinValueValidator(1)]
+    )
+
+    class Meta:
+        unique_together = [['cart', 'product']] #the same product cannot be added multiple times to the same cart
+                                                # no duplicate product entries in the same cart
+
+class Review(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='reviews')
