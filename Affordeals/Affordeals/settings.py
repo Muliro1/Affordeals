@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
+    'main'
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,15 @@ WSGI_APPLICATION = 'Affordeals.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'affordeals_db',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': 'Password',
+        'PORT': '',
+        'OPTIONS': {
+            'unix_socket': '/var/run/mysqld/mysqld.sock',
+        },
     }
 }
 
