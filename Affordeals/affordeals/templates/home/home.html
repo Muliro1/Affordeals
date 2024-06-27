@@ -56,8 +56,8 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col">
-                <h1>Welcome to our E-Commerce Site</h1>
-                <p>Check out our latest products and offers.</p>
+                <h1>Welcome to Affordeals, your one stop shop <br>for affordable used and new products.</h1>
+                <p>Don't have an account? <a href="{% url 'register' %}">Register here!!!</a></p>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@
         <div class="row justify-content-center">
           <div class="col-md-6">
 
-    <form method="POST" action="{% url 'register' %}">
+    <form method="POST" action="{% url 'register' %}" class="text-start">
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control" id="email" name="email" required>
@@ -74,8 +74,11 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary btn-black">Register</button>
     </form>
+    <div class="col">
+        <p>Already have an account? <a href="{% url 'login' %}">Login here.</a></p>
+    </div>
           </div>
         </div>
     </div>
