@@ -9,6 +9,7 @@ class SiteUser(models.Model):
     """
     Model representing a user
     """
+    birth_date = models.DateField(null=True, blank=True)
     phone_number = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
