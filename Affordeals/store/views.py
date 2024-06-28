@@ -1,25 +1,41 @@
 from django.shortcuts import render
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser, DjangoModelPermissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from .serializers import SiteUserSerializer
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from rest_framework.mixins import RetrieveModelMixin, UpdateModelMixin,  CreateModelMixin, DestroyModelMixin
-from .models import SiteUser
-from .serializers import SiteUserSerializer
+from .models import SiteUser, Products, Category
+from .serializers import SiteUserSerializer, ProductsSerializer, CategorySerializer
+from store.permissions import IsAdminOrReadOnly, FullPermissions
 
-class SiteUserViewSet(CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, GenericViewSet):
+
+class SiteUserViewSet(ModelViewSet):
   queryset = SiteUser.objects.all()
   serializer_class = SiteUserSerializer
+  permission_classes = [IsAdminUser]
 
-  @action(detail=False, methods=['GET', 'PUT'])
+
+  @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated])
   def me(self, request):
-    (customer, created) = SiteUser.objects.get_or_create(user_id=request.user.id)
+    (siteuser, created) = SiteUser.objects.get_or_create(user_id=request.user.id)
     if request.method == 'GET':
-      serializer = SiteUserSerializer(customer)
+      serializer = SiteUserSerializer(siteuser)
       return Response(serializer.data)
        
     elif request.method == 'PUT':
-      serializer = SiteUserSerializer(customer, data=request.data)
+      serializer = SiteUserSerializer(siteuser, data=request.data)
       serializer.is_valid(raise_exception=True)
       serializer.save()
       return Response(serializer.data)
+
+class ProductsViewSet(ModelViewSet):
+  queryset = Products.objects.all()
+  serializer_class = ProductsSerializer
+  permission_classes = [IsAdminOrReadOnly]
+
+
+class CategoryViewSet(ModelViewSet):
+  queryset = Category.objects.all()
+  serializer_class = CategorySerializer
+  permission_classes = [IsAdminOrReadOnly]
+
