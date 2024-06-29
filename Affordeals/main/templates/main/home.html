@@ -1,9 +1,5 @@
 {% extends "main/base.html" %}
 {% block content %}
-<form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">logout</button>
-</form>
                 <h1>Welcome to our E-Commerce Site</h1>
                 <p>Check out our latest products and offers.</p>
            
