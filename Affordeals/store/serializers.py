@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 
 class SiteUserSerializer(serializers.ModelSerializer):
-  user_id = serializers.IntegerField(read_only=True)
+  user_id = serializers.IntegerField()
   class Meta:
     model = SiteUser
     fields = ['id', 'user_id', 'birth_date', 'phone_number']
@@ -16,6 +16,6 @@ class ProductsSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
   class Meta:
     model = Category
-    fields = ['id', 'name', ]
+    fields = ['id', 'name']
 
 
