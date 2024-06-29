@@ -15,17 +15,12 @@ def home(request):
     else:
         form = CustomUserCreationForm(request.POST)
     return render(request, 'main/index.html', {'form': form})
-'''def login(request):
-    pass'''
 
 def about(request):
     return render(request, 'main/about.html')
 
 def account(request):
     return render(request, 'main/account.html')
-
-'''def logout(request):
-    pass'''
 
 def product_view(request):
     return render(request, 'main/home.html')
