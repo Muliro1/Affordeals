@@ -26,3 +26,6 @@ def account(request):
 def logout(request):
     pass
 
+def product_view(request):
+    return render(request, 'main/home.html')
+

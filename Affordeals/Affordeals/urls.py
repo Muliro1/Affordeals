@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', user_views.home, name='home'),
     path('login/', user_views.login, name='login'),
+    path('about/', user_views.about, name='about'),
+    path('products/', user_views.product_view, name='product'),
     path('store/', include('store.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt'))
