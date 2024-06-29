@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'rest_framework',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'djoser',
     'django.contrib.staticfiles',
     'store',
@@ -155,3 +157,5 @@ DJOSER = {
     'current_user': 'main.serializers.UserSerializer',
     }
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
