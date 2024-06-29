@@ -70,7 +70,7 @@ class Products(models.Model):
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
     quantity_in_stock = models.IntegerField()
 
-class Order(models.Model):
+class ShoppingOrder(models.Model):
     """
     Order model.
     """
@@ -95,14 +95,14 @@ class Order(models.Model):
         ]
 
 
-class OrderItem(models.Model):
+class ShoppingOrderItem(models.Model):
     """
     OrderItem Model.
     """
     quantity = models.PositiveIntegerField()
     unit_price = models.DecimalField(max_digits=8, decimal_places=2)
     products = models.ForeignKey(Products, on_delete=models.PROTECT, related_name='orderitems')
-    order = models.ForeignKey(Order, on_delete=models.PROTECT)
+    order = models.ForeignKey(ShoppingOrder, on_delete=models.PROTECT)
 
 
 class ShoppingCart(models.Model):

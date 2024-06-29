@@ -4,8 +4,9 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from .serializers import SiteUserSerializer
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from .models import SiteUser, Products, Category
-from .serializers import SiteUserSerializer, ProductsSerializer, CategorySerializer
+from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem
+from .serializers import SiteUserSerializer, ProductsSerializer, CategorySerializer,\
+                         ShoppingOrderSerializer, ShoppingOrderItemSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 
 
@@ -38,4 +39,15 @@ class CategoryViewSet(ModelViewSet):
   queryset = Category.objects.all()
   serializer_class = CategorySerializer
   permission_classes = [IsAdminOrReadOnly]
+
+class ShoppingOrderViewSet(ModelViewSet):
+  queryset = ShoppingOrder.objects.all()
+  serializer_class = ShoppingOrderSerializer
+  permission_classes = [IsAuthenticated]
+
+
+class ShoppingOrderItemViewSet(ModelViewSet):
+  queryset = ShoppingOrderItem.objects.all()
+  serializer_class = ShoppingOrderItemSerializer
+  permission_classes = [IsAuthenticated]
 

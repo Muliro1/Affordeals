@@ -1,11 +1,9 @@
 from django.contrib import admin
 from django.db.models.aggregates import Count
 from django.utils.html import format_html, urlencode
-from .models import Products, Address, SiteUser, Category, Order, OrderItem
+from .models import Products, Address, SiteUser, Category, ShoppingOrder, ShoppingOrderItem
 from django.urls import reverse
 
-
-admin.site.register(Address)
 
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):
@@ -67,10 +65,10 @@ class OrderItemInline(admin.TabularInline):
     autocomplete_fields = ['products']
     min_num = 1
     max_num = 10
-    model = OrderItem
+    model = ShoppingOrderItem
     extra = 0
 
-@admin.register(Order)
+@admin.register(ShoppingOrder)
 class OrderAdmin(admin.ModelAdmin):
   autocomplete_fields = ['siteuser']
   list_display = ['id', 'created_at', 'siteuser']
