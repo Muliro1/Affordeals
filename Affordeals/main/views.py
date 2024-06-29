@@ -15,8 +15,8 @@ def home(request):
     else:
         form = CustomUserCreationForm(request.POST)
     return render(request, 'main/index.html', {'form': form})
-def login(request):
-    return render(request, 'main/login.html')
+'''def login(request):
+    pass'''
 
 def about(request):
     return render(request, 'main/about.html')
