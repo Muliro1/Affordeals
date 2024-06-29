@@ -1,4 +1,5 @@
-from .models import Category, SiteUser, Products
+from .models import Category, SiteUser, Products, ShoppingOrder,\
+                    ShoppingOrderItem, ShoppingCart, ShoppingCartItem
 from rest_framework import serializers
 
 
@@ -18,4 +19,19 @@ class CategorySerializer(serializers.ModelSerializer):
     model = Category
     fields = ['id', 'name']
 
+class CustomProductSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Products
+    fields = ['id', 'name', 'unit_price']
 
+class ShoppingOrderItemSerializer(serializers.ModelSerializer):
+  products = CustomProductSerializer
+  class Meta:
+    model = ShoppingOrderItem
+    fields = ['id', 'products', 'quantity']
+  
+   
+class ShoppingOrderSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = ShoppingOrder
+    fields = ['id', 'created_at', 'siteuser', 'payment_status']
