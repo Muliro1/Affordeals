@@ -22,6 +22,7 @@ from main import views as user_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', user_views.home, name='home'),
+    path('login/', user_views.login, name='login'),
     path('store/', include('store.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt'))
