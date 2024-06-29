@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'djoser',
     'django.contrib.staticfiles',
     'store',
-    'main'
+    'main',
+    'Likes',
 ]
 
 MIDDLEWARE = [
