@@ -65,10 +65,10 @@ class ShoppingOrderItemSerializer(serializers.ModelSerializer):
     - products (CustomProductSerializer): The product associated with the order item.
     - quantity (int): The quantity of the product in the order item.
   """
-  products = CustomProductSerializer
+  products = CustomProductSerializer()
   class Meta:
     model = ShoppingOrderItem
-    fields = ['id', 'products', 'quantity']
+    fields = ['id', 'products', 'unit_price', 'quantity']
   
    
 class ShoppingOrderSerializer(serializers.ModelSerializer):
@@ -81,6 +81,7 @@ class ShoppingOrderSerializer(serializers.ModelSerializer):
     - siteuser (SiteUser): The user who placed the order.
     - payment_status (str): The payment status of the order.
   """
+  items = ShoppingOrderItemSerializer(many=True)
   class Meta:
     model = ShoppingOrder
-    fields = ['id', 'created_at', 'siteuser', 'payment_status']
+    fields = ['id', 'created_at', 'siteuser', 'payment_status', 'items']

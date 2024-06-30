@@ -156,7 +156,7 @@ class ShoppingOrderItem(models.Model):
     quantity = models.PositiveIntegerField()
     unit_price = models.DecimalField(max_digits=8, decimal_places=2)
     products = models.ForeignKey(Products, on_delete=models.PROTECT, related_name='orderitems')
-    order = models.ForeignKey(ShoppingOrder, on_delete=models.PROTECT)
+    order = models.ForeignKey(ShoppingOrder, on_delete=models.PROTECT, related_name='items')
 
 
 class ShoppingCart(models.Model):
