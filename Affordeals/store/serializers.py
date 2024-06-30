@@ -25,13 +25,14 @@ class CustomProductSerializer(serializers.ModelSerializer):
     fields = ['id', 'name', 'unit_price']
 
 class ShoppingOrderItemSerializer(serializers.ModelSerializer):
-  products = CustomProductSerializer
+  products = CustomProductSerializer()
   class Meta:
     model = ShoppingOrderItem
-    fields = ['id', 'products', 'quantity']
+    fields = ['id', 'products', 'unit_price', 'quantity']
   
    
 class ShoppingOrderSerializer(serializers.ModelSerializer):
+  items = ShoppingOrderItemSerializer(many=True)
   class Meta:
     model = ShoppingOrder
-    fields = ['id', 'created_at', 'siteuser', 'payment_status']
+    fields = ['id', 'created_at', 'siteuser', 'payment_status', 'items']

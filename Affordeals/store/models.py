@@ -69,6 +69,7 @@ class Products(models.Model):
     description = models.TextField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
     quantity_in_stock = models.IntegerField()
+    
 
 class ShoppingOrder(models.Model):
     """
@@ -102,7 +103,7 @@ class ShoppingOrderItem(models.Model):
     quantity = models.PositiveIntegerField()
     unit_price = models.DecimalField(max_digits=8, decimal_places=2)
     products = models.ForeignKey(Products, on_delete=models.PROTECT, related_name='orderitems')
-    order = models.ForeignKey(ShoppingOrder, on_delete=models.PROTECT)
+    order = models.ForeignKey(ShoppingOrder, on_delete=models.PROTECT, related_name='items')
 
 
 class ShoppingCart(models.Model):
@@ -111,7 +112,7 @@ class ShoppingCart(models.Model):
 
 
 class ShoppingCartItem(models.Model):
-    cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name='items')
+    cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name='cartitems')
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(
         validators=[MinValueValidator(1)]
