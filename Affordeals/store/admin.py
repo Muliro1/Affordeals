@@ -83,7 +83,7 @@ class SiteUserAdmin(admin.ModelAdmin):
     - orders (function): Returns the number of orders for a given site user.
     - get_queryset (function): Customizes the query set to include the order
       count annotation.
-    """
+  """
   list_display = ['first_name', 'last_name']
   list_select_related = ['user']
   search_fields = ['first_name__istartswith', 'last_name__istartswith']
@@ -136,7 +136,7 @@ class OrderAdmin(admin.ModelAdmin):
     - id (UUID): A unique identifier for the order.
     - created_at (DateTime): The timestamp when the order was created.
     - siteuser (ForeignKey): Reference to the user who placed the order.
-    """
+  """
   autocomplete_fields = ['siteuser']
   list_display = ['id', 'created_at', 'siteuser']
   inlines = [OrderItemInline]

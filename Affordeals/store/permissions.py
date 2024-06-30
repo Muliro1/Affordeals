@@ -24,6 +24,6 @@ class FullPermissions(permissions.DjangoModelPermissions):
     
     Methods:
     - __init__ (function): Initializes the permission map for GET requests.
-    """
+  """
   def __init__(self) -> None:
     self.perms_map['GET'] = ['%(app_label)s.view_%(model_name)s']
