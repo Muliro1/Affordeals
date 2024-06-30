@@ -7,6 +7,22 @@ from django.urls import reverse
 
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):
+    """
+    Admin interface for managing Product objects.
+
+    Configuration:
+    - autocomplete_fields (list): Fields to use for autocomplete widgets.
+    - list_display (list): Fields to display in the admin list view.
+    - list_per_page (int): Number of items to display per page in the
+      admin list view.
+    - list_select_related (list): Related fields to fetch in the same
+      database query.
+    - search_fields (list): Fields to include in the search functionality.
+
+    Methods:
+    - category_name (function): Returns the name of the category for a
+      given product.
+    """
     autocomplete_fields = ['category']
     list_display = ['name', 'unit_price', 'category_name']
     list_per_page = 10
@@ -19,6 +35,19 @@ class ProductsAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Admin interface for managing Category objects.
+
+    Configuration:
+    - autocomplete_fields (list): Fields to use for autocomplete widgets.
+    - list_display (list): Fields to display in the admin list view.
+    - search_fields (list): Fields to include in the search functionality.
+
+    Methods:
+    - products_count (function): Returns the number of products in a given category.
+    - get_queryset (function): Customizes the query set to include the
+      product count annotation.
+    """
     autocomplete_fields = ['highlighted_product']
     list_display = ['name', 'products_count']
     search_fields = ['name']
@@ -41,6 +70,20 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(SiteUser)
 class SiteUserAdmin(admin.ModelAdmin):
+  """
+    Admin interface for managing SiteUser objects.
+
+    Configuration:
+    - list_display (list): Fields to display in the admin list view.
+    - list_select_related (list): Related fields to fetch in the
+      same database query.
+    - search_fields (list): Fields to include in the search functionality.
+
+    Methods:
+    - orders (function): Returns the number of orders for a given site user.
+    - get_queryset (function): Customizes the query set to include the order
+      count annotation.
+    """
   list_display = ['first_name', 'last_name']
   list_select_related = ['user']
   search_fields = ['first_name__istartswith', 'last_name__istartswith']
@@ -62,6 +105,17 @@ class SiteUserAdmin(admin.ModelAdmin):
     )
 
 class OrderItemInline(admin.TabularInline):
+    """
+    Inline admin interface for managing ShoppingOrderItem
+    objects within an order.
+
+    Configuration:
+    - autocomplete_fields (list): Fields to use for autocomplete widgets.
+    - min_num (int): Minimum number of items required.
+    - max_num (int): Maximum number of items allowed.
+    - model (class): The model to be managed.
+    - extra (int): Number of extra empty forms to display.
+    """
     autocomplete_fields = ['products']
     min_num = 1
     max_num = 10
@@ -70,6 +124,19 @@ class OrderItemInline(admin.TabularInline):
 
 @admin.register(ShoppingOrder)
 class OrderAdmin(admin.ModelAdmin):
+  """
+    Admin interface for managing ShoppingOrder objects.
+
+    Configuration:
+    - autocomplete_fields (list): Fields to use for autocomplete widgets.
+    - list_display (list): Fields to display in the admin list view.
+    - inlines (list): Inline admin interfaces to include.
+
+    Fields:
+    - id (UUID): A unique identifier for the order.
+    - created_at (DateTime): The timestamp when the order was created.
+    - siteuser (ForeignKey): Reference to the user who placed the order.
+    """
   autocomplete_fields = ['siteuser']
   list_display = ['id', 'created_at', 'siteuser']
   inlines = [OrderItemInline]
