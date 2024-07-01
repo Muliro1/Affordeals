@@ -1371,7 +1371,7 @@
         "kind": 6,
         "importPath": "Affordeals.store.serializers",
         "description": "Affordeals.store.serializers",
-        "peekOfCode": "class SiteUserSerializer(serializers.ModelSerializer):\n  user_id = serializers.IntegerField()\n  class Meta:\n    model = SiteUser\n    fields = ['id', 'user_id', 'birth_date', 'phone_number']\nclass ProductsSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Products\n    fields = ['id', 'name', 'unit_price']\nclass CategorySerializer(serializers.ModelSerializer):",
+        "peekOfCode": "class SiteUserSerializer(serializers.ModelSerializer):\n  user_id = serializers.IntegerField()\n  class Meta:\n    model = SiteUser\n    fields = ['id', 'user_id', 'birth_date', 'phone_number']\nclass ProductsSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Products\n    fields = ['id', 'name', 'unit_price', 'description','quantity_in_stock']\nclass CategorySerializer(serializers.ModelSerializer):",
         "detail": "Affordeals.store.serializers",
         "documentation": {}
     },
@@ -1380,7 +1380,7 @@
         "kind": 6,
         "importPath": "Affordeals.store.serializers",
         "description": "Affordeals.store.serializers",
-        "peekOfCode": "class ProductsSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Products\n    fields = ['id', 'name', 'unit_price']\nclass CategorySerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Category\n    fields = ['id', 'name']\nclass CustomProductSerializer(serializers.ModelSerializer):\n  class Meta:",
+        "peekOfCode": "class ProductsSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Products\n    fields = ['id', 'name', 'unit_price', 'description','quantity_in_stock']\nclass CategorySerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Category\n    fields = ['id', 'name']\nclass CustomProductSerializer(serializers.ModelSerializer):\n  class Meta:",
         "detail": "Affordeals.store.serializers",
         "documentation": {}
     },
@@ -1452,7 +1452,7 @@
         "kind": 6,
         "importPath": "Affordeals.store.views",
         "description": "Affordeals.store.views",
-        "peekOfCode": "class ProductsViewSet(ModelViewSet):\n  queryset = Products.objects.all()\n  serializer_class = ProductsSerializer\n  permission_classes = [IsAdminOrReadOnly]\nclass CategoryViewSet(ModelViewSet):\n  queryset = Category.objects.all()\n  serializer_class = CategorySerializer\n  permission_classes = [IsAdminOrReadOnly]\nclass ShoppingOrderViewSet(ModelViewSet):\n  queryset = ShoppingOrder.objects.all()",
+        "peekOfCode": "class ProductsViewSet(ModelViewSet):\n  queryset = Products.objects.all()\n  serializer_class = ProductsSerializer\n  permission_classes = [IsAdminOrReadOnly]\n  @action(detail=False, methods=['PUT'], permission_classes=[IsAuthenticated])\n  def Add_Product(self, request):\n    (products, created) = Products.objects.get_or_create(name=request.data.name)\n    serializer = ProductsSerializer(products, data=request.data)\n    serializer.is_valid(raise_exception=True)\n    serializer.save()",
         "detail": "Affordeals.store.views",
         "documentation": {}
     },

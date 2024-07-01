@@ -29,16 +29,33 @@ class SiteUserViewSet(ModelViewSet):
       serializer.save()
       return Response(serializer.data)
 
+
 class ProductsViewSet(ModelViewSet):
   queryset = Products.objects.all()
   serializer_class = ProductsSerializer
   permission_classes = [IsAdminOrReadOnly]
+  
+  @action(detail=False, methods=['PUT'], permission_classes=[IsAuthenticated])
+  def Add_Product(self, request):
+    (products, created) = Products.objects.get_or_create(name=request.data.name)
+    serializer = ProductsSerializer(products, data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data)
+  
+  @action(detail=False, methods=['GET'], permission_classes=[IsAuthenticated])
+  def Get_Product(self, request):
+    (products, created) = SiteUser.objects.get_or_create(name=request.data.name)
+    serializer = ProductsSerializer(products)
+    return Response(serializer.data)
+
 
 
 class CategoryViewSet(ModelViewSet):
   queryset = Category.objects.all()
   serializer_class = CategorySerializer
   permission_classes = [IsAdminOrReadOnly]
+
 
 class ShoppingOrderViewSet(ModelViewSet):
   queryset = ShoppingOrder.objects.all()

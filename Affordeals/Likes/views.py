@@ -24,6 +24,16 @@ class ProductsLikes(ModelViewSet):
             return Response(queryset)
         else:
             return Response([])
+        
+    @action(detail=False, methods=['GET'], permission_classes=[IsAuthenticated])
+    def Get_ProductsLikes(self, request):
+       
+        queryset = LikedItem.objects.filter(object_id=request.data, ordered=True)
+    
+        if queryset.exists():
+            return Response(queryset)
+        else:
+            return Response([])
 
 
 

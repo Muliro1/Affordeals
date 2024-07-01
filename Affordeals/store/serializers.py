@@ -12,7 +12,7 @@ class SiteUserSerializer(serializers.ModelSerializer):
 class ProductsSerializer(serializers.ModelSerializer):
   class Meta:
     model = Products
-    fields = ['id', 'name', 'unit_price']
+    fields = ['id', 'name', 'unit_price', 'description','quantity_in_stock']
 
 class CategorySerializer(serializers.ModelSerializer):
   class Meta:
