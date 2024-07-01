@@ -2,3 +2,6 @@
 /bin
 /__pycache__/
 *.pyc
+access_nathan
+Pipfile
+Pipfile.lock
