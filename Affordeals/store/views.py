@@ -2,11 +2,14 @@ from django.shortcuts import render
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser, DjangoModelPermissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
 from .serializers import SiteUserSerializer
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem
+from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem, Review, ShoppingCart, ShoppingCartItem
 from .serializers import SiteUserSerializer, ProductsSerializer, CategorySerializer,\
-                         ShoppingOrderSerializer, ShoppingOrderItemSerializer
+                         ShoppingOrderSerializer, ShoppingOrderItemSerializer, ReviewSerializer,\
+                         ShoppingCartSerializer, ShoppingCartItemSerializer, AddShoppingCartItemSerializer,\
+                         UpdateShoppingCartItemSerializer, NewOrderSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 
 
@@ -41,13 +44,51 @@ class CategoryViewSet(ModelViewSet):
   permission_classes = [IsAdminOrReadOnly]
 
 class ShoppingOrderViewSet(ModelViewSet):
-  queryset = ShoppingOrder.objects.all()
-  serializer_class = ShoppingOrderSerializer
+  #serializer_class = ShoppingOrderSerializer
   permission_classes = [IsAuthenticated]
 
+  def get_serializer_class(self):
+    if self.request.method == 'POST':
+      return NewOrderSerializer
+    return ShoppingOrderSerializer
+
+  def get_queryset(self):
+    if self.request.user.is_staff:
+      return ShoppingOrder.objects.all()
+    (siteuser_id, created) = SiteUser.objects.only('id').get_or_create(user_id=self.request.user.id)
+    return SiteUser.objects.filter(siteuser_id=siteuser_id)
+  
 
 class ShoppingOrderItemViewSet(ModelViewSet):
   queryset = ShoppingOrderItem.objects.all()
   serializer_class = ShoppingOrderItemSerializer
   permission_classes = [IsAuthenticated]
+
+class ReviewViewSet(ModelViewSet):
+  queryset = Review.objects.all()
+  serializer_class = ReviewSerializer
+
+
+class ShoppingCartViewSet(CreateModelMixin, RetrieveModelMixin,
+                          DestroyModelMixin, GenericViewSet):
+  queryset = ShoppingCart.objects.prefetch_related('cartitems__product').all()
+  serializer_class = ShoppingCartSerializer
+
+class ShoppingCartItemViewSet(ModelViewSet):
+  http_method_names = ['get', 'post', 'patch', 'delete']
+  def get_serializer_class(self):
+    if self.request.method == 'POST':
+      return AddShoppingCartItemSerializer
+    elif self.request.method == 'PATCH':
+      return UpdateShoppingCartItemSerializer
+    return ShoppingCartItemSerializer
+
+  def get_queryset(self):
+    return ShoppingCartItem.objects.\
+           filter(cart_id=self.kwargs['cart_pk'])#.\select_related('product')
+  
+  def get_serializer_context(self):
+    return {'cart_id': self.kwargs['cart_pk']}
+  
+  
 
