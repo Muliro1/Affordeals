@@ -1,0 +1,1495 @@
+[
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "ContentType",
+        "importPath": "django.contrib.contenttypes.models",
+        "description": "django.contrib.contenttypes.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.contenttypes.models",
+        "documentation": {}
+    },
+    {
+        "label": "GenericForeignKey",
+        "importPath": "django.contrib.contenttypes.fields",
+        "description": "django.contrib.contenttypes.fields",
+        "isExtraImport": true,
+        "detail": "django.contrib.contenttypes.fields",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "routers",
+        "importPath": "rest_framework_nested",
+        "description": "rest_framework_nested",
+        "isExtraImport": true,
+        "detail": "rest_framework_nested",
+        "documentation": {}
+    },
+    {
+        "label": "routers",
+        "importPath": "rest_framework_nested",
+        "description": "rest_framework_nested",
+        "isExtraImport": true,
+        "detail": "rest_framework_nested",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminUser",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoModelPermissions",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminUser",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoModelPermissions",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "GenericViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "GenericViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminOrReadOnly",
+        "importPath": "store.permissions",
+        "description": "store.permissions",
+        "isExtraImport": true,
+        "detail": "store.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "FullPermissions",
+        "importPath": "store.permissions",
+        "description": "store.permissions",
+        "isExtraImport": true,
+        "detail": "store.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminOrReadOnly",
+        "importPath": "store.permissions",
+        "description": "store.permissions",
+        "isExtraImport": true,
+        "detail": "store.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "FullPermissions",
+        "importPath": "store.permissions",
+        "description": "store.permissions",
+        "isExtraImport": true,
+        "detail": "store.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.models",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AbstractUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "django.contrib.auth.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.contrib.auth.validators",
+        "description": "django.contrib.auth.validators",
+        "detail": "django.contrib.auth.validators",
+        "documentation": {}
+    },
+    {
+        "label": "django.utils.timezone",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "importPath": "django.contrib.auth.admin",
+        "description": "django.contrib.auth.admin",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.admin",
+        "documentation": {}
+    },
+    {
+        "label": "UserSerializer",
+        "importPath": "djoser.serializers",
+        "description": "djoser.serializers",
+        "isExtraImport": true,
+        "detail": "djoser.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "\\",
+        "importPath": "djoser.serializers",
+        "description": "djoser.serializers",
+        "isExtraImport": true,
+        "detail": "djoser.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "uuid4",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "django.core.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "MinValueValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models.aggregates",
+        "description": "django.db.models.aggregates",
+        "isExtraImport": true,
+        "detail": "django.db.models.aggregates",
+        "documentation": {}
+    },
+    {
+        "label": "format_html",
+        "importPath": "django.utils.html",
+        "description": "django.utils.html",
+        "isExtraImport": true,
+        "detail": "django.utils.html",
+        "documentation": {}
+    },
+    {
+        "label": "urlencode",
+        "importPath": "django.utils.html",
+        "description": "django.utils.html",
+        "isExtraImport": true,
+        "detail": "django.utils.html",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "AffordealsConfig",
+        "kind": 6,
+        "importPath": "Affordeals.Affordeals.apps",
+        "description": "Affordeals.Affordeals.apps",
+        "peekOfCode": "class AffordealsConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'affordeals'",
+        "detail": "Affordeals.Affordeals.apps",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.asgi",
+        "description": "Affordeals.Affordeals.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "Affordeals.Affordeals.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-@-1dum-sknsu(t+h&@zo_-4=yw77gva0tk1*w+e*khv1&$1fa!'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-@-1dum-sknsu(t+h&@zo_-4=yw77gva0tk1*w+e*khv1&$1fa!'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'rest_framework',",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'rest_framework',\n    'djoser',",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'rest_framework',\n    'djoser',\n    'django.contrib.staticfiles',\n    'store',",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'Affordeals.urls'",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "ROOT_URLCONF = 'Affordeals.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'Affordeals.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.0/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'affordeals_db',\n        'HOST': 'localhost',\n        'USER': 'root',\n        'PASSWORD': 'Password',",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'affordeals_db',\n        'HOST': 'localhost',\n        'USER': 'root',\n        'PASSWORD': 'Password',\n        'PORT': '',\n        'OPTIONS': {\n            'unix_socket': '/var/run/mysqld/mysqld.sock',",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'main.User'",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'main.User'\nREST_FRAMEWORK = {",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'main.User'\nREST_FRAMEWORK = {\n    'COERCE_DECIMAL_STRING': False,",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'main.User'\nREST_FRAMEWORK = {\n    'COERCE_DECIMAL_STRING': False,\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    ),",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'main.User'\nREST_FRAMEWORK = {\n    'COERCE_DECIMAL_STRING': False,\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    ),\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticated'\n    ],",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_USER_MODEL",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "AUTH_USER_MODEL = 'main.User'\nREST_FRAMEWORK = {\n    'COERCE_DECIMAL_STRING': False,\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    ),\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticated'\n    ],\n}",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'COERCE_DECIMAL_STRING': False,\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    ),\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticated'\n    ],\n}\nSIMPLE_JWT = {",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SIMPLE_JWT",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "SIMPLE_JWT = {\n   'AUTH_HEADER_TYPES': ('JWT',),\n   \"ACCESS_TOKEN_LIFETIME\": timedelta(days=1),\n}\nDJOSER = {\n    'SERIALIZERS':\n    {\n    'user_create': 'main.serializers.UserCreateSerializer',\n    'current_user': 'main.serializers.UserSerializer',\n    }",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DJOSER",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.settings",
+        "description": "Affordeals.Affordeals.settings",
+        "peekOfCode": "DJOSER = {\n    'SERIALIZERS':\n    {\n    'user_create': 'main.serializers.UserCreateSerializer',\n    'current_user': 'main.serializers.UserSerializer',\n    }\n}",
+        "detail": "Affordeals.Affordeals.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.urls",
+        "description": "Affordeals.Affordeals.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('store/', include('store.urls')),\n    path('auth/', include('djoser.urls')),\n    path('auth/', include('djoser.urls.jwt'))\n]",
+        "detail": "Affordeals.Affordeals.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "Affordeals.Affordeals.wsgi",
+        "description": "Affordeals.Affordeals.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "Affordeals.Affordeals.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "LikesConfig",
+        "kind": 6,
+        "importPath": "Affordeals.Likes.apps",
+        "description": "Affordeals.Likes.apps",
+        "peekOfCode": "class LikesConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'Likes'",
+        "detail": "Affordeals.Likes.apps",
+        "documentation": {}
+    },
+    {
+        "label": "LikedItem",
+        "kind": 6,
+        "importPath": "Affordeals.Likes.models",
+        "description": "Affordeals.Likes.models",
+        "peekOfCode": "class LikedItem(models.Model):\n  user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)\n  object_id = models.PositiveSmallIntegerField()\n  content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)\n  content_object = GenericForeignKey('content_type', 'object_id')",
+        "detail": "Affordeals.Likes.models",
+        "documentation": {}
+    },
+    {
+        "label": "LikesSerializer",
+        "kind": 6,
+        "importPath": "Affordeals.Likes.serializers",
+        "description": "Affordeals.Likes.serializers",
+        "peekOfCode": "class LikesSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = LikedItem\n    fields = ['user', 'object_id', 'content_type', 'content_object']",
+        "detail": "Affordeals.Likes.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "Affordeals.Likes.url",
+        "description": "Affordeals.Likes.url",
+        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register('likes', ProductsLikes.Get_ProductsLikes)\nurlpatterns = [\n  path('', include(router.urls)),\n]",
+        "detail": "Affordeals.Likes.url",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "Affordeals.Likes.url",
+        "description": "Affordeals.Likes.url",
+        "peekOfCode": "urlpatterns = [\n  path('', include(router.urls)),\n]",
+        "detail": "Affordeals.Likes.url",
+        "documentation": {}
+    },
+    {
+        "label": "ProductsLikes",
+        "kind": 6,
+        "importPath": "Affordeals.Likes.views",
+        "description": "Affordeals.Likes.views",
+        "peekOfCode": "class ProductsLikes(ModelViewSet):\n    model = LikedItem\n    serializer_class = LikesSerializer\n    permission_classes = [IsAdminOrReadOnly]\n    @action(detail=False, methods=['GET'], permission_classes=[IsAuthenticated])\n    def Get_ProductsLikes(self, request):\n        queryset = LikedItem.objects.filter(object_id=request.data, ordered=True)\n        if queryset.exists():\n            return Response(queryset)\n        else:",
+        "detail": "Affordeals.Likes.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.main.migrations.0001_initial",
+        "description": "Affordeals.main.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('auth', '0012_alter_user_first_name_max_length'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='User',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "Affordeals.main.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "kind": 6,
+        "importPath": "Affordeals.main.admin",
+        "description": "Affordeals.main.admin",
+        "peekOfCode": "class UserAdmin(BaseUserAdmin):\n  add_fieldsets = (\n    (None, {\n      'classes': ('wide',),\n      'fields': ('username', 'password1', 'password2',\n          'email', 'first_name', 'last_name')\n    }),\n  )",
+        "detail": "Affordeals.main.admin",
+        "documentation": {}
+    },
+    {
+        "label": "MainConfig",
+        "kind": 6,
+        "importPath": "Affordeals.main.apps",
+        "description": "Affordeals.main.apps",
+        "peekOfCode": "class MainConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'main'",
+        "detail": "Affordeals.main.apps",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "Affordeals.main.models",
+        "description": "Affordeals.main.models",
+        "peekOfCode": "class User(AbstractUser):\n  email = models.EmailField(unique=True)",
+        "detail": "Affordeals.main.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreateSerializer",
+        "kind": 6,
+        "importPath": "Affordeals.main.serializers",
+        "description": "Affordeals.main.serializers",
+        "peekOfCode": "class UserCreateSerializer(BaseUserCreateSerializer):\n  class Meta(BaseUserCreateSerializer.Meta):\n    fields = ['id', 'username', 'email', 'password', 'first_name', 'last_name']\nclass UserSerializer(BaseUserSerializer):\n  class Meta(BaseUserSerializer.Meta):\n    fields = ['id', 'username', 'email', 'first_name', 'last_name']",
+        "detail": "Affordeals.main.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserSerializer",
+        "kind": 6,
+        "importPath": "Affordeals.main.serializers",
+        "description": "Affordeals.main.serializers",
+        "peekOfCode": "class UserSerializer(BaseUserSerializer):\n  class Meta(BaseUserSerializer.Meta):\n    fields = ['id', 'username', 'email', 'first_name', 'last_name']",
+        "detail": "Affordeals.main.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0001_initial",
+        "description": "Affordeals.store.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='SiteUser',\n            fields=[\n                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),\n                ('name', models.CharField(max_length=255)),",
+        "detail": "Affordeals.store.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0002_category_remove_siteuser_name_siteuser_first_name_and_more",
+        "description": "Affordeals.store.migrations.0002_category_remove_siteuser_name_siteuser_first_name_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('store', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Category',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=100)),",
+        "detail": "Affordeals.store.migrations.0002_category_remove_siteuser_name_siteuser_first_name_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0003_alter_siteuser_options_remove_siteuser_email_and_more",
+        "description": "Affordeals.store.migrations.0003_alter_siteuser_options_remove_siteuser_email_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('store', '0002_category_remove_siteuser_name_siteuser_first_name_and_more'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='siteuser',\n            options={'ordering': ['user__first_name', 'user__last_name']},\n        ),",
+        "detail": "Affordeals.store.migrations.0003_alter_siteuser_options_remove_siteuser_email_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0004_order_rename_user_id_address_siteuser_and_more",
+        "description": "Affordeals.store.migrations.0004_order_rename_user_id_address_siteuser_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('store', '0003_alter_siteuser_options_remove_siteuser_email_and_more'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Order',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('created_at', models.DateTimeField(auto_now_add=True)),",
+        "detail": "Affordeals.store.migrations.0004_order_rename_user_id_address_siteuser_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0005_rename_price_orderitem_unit_price_and_more",
+        "description": "Affordeals.store.migrations.0005_rename_price_orderitem_unit_price_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('store', '0004_order_rename_user_id_address_siteuser_and_more'),\n    ]\n    operations = [\n        migrations.RenameField(\n            model_name='orderitem',\n            old_name='price',\n            new_name='unit_price',\n        ),",
+        "detail": "Affordeals.store.migrations.0005_rename_price_orderitem_unit_price_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0006_alter_order_options",
+        "description": "Affordeals.store.migrations.0006_alter_order_options",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('store', '0005_rename_price_orderitem_unit_price_and_more'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='order',\n            options={'permissions': [('cancel_order', 'Can cancel order')]},\n        ),\n    ]",
+        "detail": "Affordeals.store.migrations.0006_alter_order_options",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0007_shoppingcart_review_shoppingcartitem",
+        "description": "Affordeals.store.migrations.0007_shoppingcart_review_shoppingcartitem",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('store', '0006_alter_order_options'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='ShoppingCart',\n            fields=[\n                ('id', models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),\n                ('created_at', models.DateTimeField(auto_now_add=True)),",
+        "detail": "Affordeals.store.migrations.0007_shoppingcart_review_shoppingcartitem",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0008_siteuser_birth_date",
+        "description": "Affordeals.store.migrations.0008_siteuser_birth_date",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('store', '0007_shoppingcart_review_shoppingcartitem'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='siteuser',\n            name='birth_date',\n            field=models.DateField(blank=True, null=True),\n        ),",
+        "detail": "Affordeals.store.migrations.0008_siteuser_birth_date",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "Affordeals.store.migrations.0009_rename_order_shoppingorder_and_more",
+        "description": "Affordeals.store.migrations.0009_rename_order_shoppingorder_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('store', '0008_siteuser_birth_date'),\n    ]\n    operations = [\n        migrations.RenameModel(\n            old_name='Order',\n            new_name='ShoppingOrder',\n        ),\n        migrations.RenameModel(",
+        "detail": "Affordeals.store.migrations.0009_rename_order_shoppingorder_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "ProductsAdmin",
+        "kind": 6,
+        "importPath": "Affordeals.store.admin",
+        "description": "Affordeals.store.admin",
+        "peekOfCode": "class ProductsAdmin(admin.ModelAdmin):\n    autocomplete_fields = ['category']\n    list_display = ['name', 'unit_price', 'category_name']\n    list_per_page = 10\n    list_select_related = ['category']\n    search_fields = ['name']\n    def category_name(self, products):\n        return products.category.name\n@admin.register(Category)\nclass CategoryAdmin(admin.ModelAdmin):",
+        "detail": "Affordeals.store.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryAdmin",
+        "kind": 6,
+        "importPath": "Affordeals.store.admin",
+        "description": "Affordeals.store.admin",
+        "peekOfCode": "class CategoryAdmin(admin.ModelAdmin):\n    autocomplete_fields = ['highlighted_product']\n    list_display = ['name', 'products_count']\n    search_fields = ['name']\n    @admin.display(ordering='products_count')\n    def products_count(self, category):\n        url = (\n            reverse('admin:store_products_changelist')\n            + '?'\n            + urlencode({",
+        "detail": "Affordeals.store.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SiteUserAdmin",
+        "kind": 6,
+        "importPath": "Affordeals.store.admin",
+        "description": "Affordeals.store.admin",
+        "peekOfCode": "class SiteUserAdmin(admin.ModelAdmin):\n  list_display = ['first_name', 'last_name']\n  list_select_related = ['user']\n  search_fields = ['first_name__istartswith', 'last_name__istartswith']\n  @admin.display(ordering='orders_count')\n  def orders(self, siteuser):\n    url = (\n      reverse('admin:store_order_changelist')\n      + '?'\n      + urlencode({",
+        "detail": "Affordeals.store.admin",
+        "documentation": {}
+    },
+    {
+        "label": "OrderItemInline",
+        "kind": 6,
+        "importPath": "Affordeals.store.admin",
+        "description": "Affordeals.store.admin",
+        "peekOfCode": "class OrderItemInline(admin.TabularInline):\n    autocomplete_fields = ['products']\n    min_num = 1\n    max_num = 10\n    model = ShoppingOrderItem\n    extra = 0\n@admin.register(ShoppingOrder)\nclass OrderAdmin(admin.ModelAdmin):\n  autocomplete_fields = ['siteuser']\n  list_display = ['id', 'created_at', 'siteuser']",
+        "detail": "Affordeals.store.admin",
+        "documentation": {}
+    },
+    {
+        "label": "OrderAdmin",
+        "kind": 6,
+        "importPath": "Affordeals.store.admin",
+        "description": "Affordeals.store.admin",
+        "peekOfCode": "class OrderAdmin(admin.ModelAdmin):\n  autocomplete_fields = ['siteuser']\n  list_display = ['id', 'created_at', 'siteuser']\n  inlines = [OrderItemInline]",
+        "detail": "Affordeals.store.admin",
+        "documentation": {}
+    },
+    {
+        "label": "StoreConfig",
+        "kind": 6,
+        "importPath": "Affordeals.store.apps",
+        "description": "Affordeals.store.apps",
+        "peekOfCode": "class StoreConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'store'",
+        "detail": "Affordeals.store.apps",
+        "documentation": {}
+    },
+    {
+        "label": "SiteUser",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class SiteUser(models.Model):\n    \"\"\"\n    Model representing a user\n    \"\"\"\n    birth_date = models.DateField(null=True, blank=True)\n    phone_number = models.CharField(max_length=20)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)\n    def __str__(self):",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Address",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class Address(models.Model):\n    \"\"\"\n    Model representing user address\n    \"\"\"\n    siteuser = models.ForeignKey(SiteUser, on_delete=models.CASCADE)\n    country = models.CharField(max_length=100)\n    state = models.CharField(max_length=100)\n    city = models.CharField(max_length=100)\n    street_number = models.CharField(max_length=100)\n    address_line_1 = models.CharField(max_length=100)",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class Category(models.Model):\n    \"\"\"\n    Model representing products categories\n    \"\"\"\n    name = models.CharField(max_length=100)\n    highlighted_product = models.ForeignKey(\n        'Products', on_delete=models.SET_NULL,\n        null = True,\n        related_name='+',\n        blank=True",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Products",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class Products(models.Model):\n    \"\"\"\n    Model representing products\n    \"\"\"\n    name = models.CharField(max_length=100)\n    category = models.ForeignKey(Category, on_delete=models.PROTECT)\n    image = models.ImageField(\n        upload_to='images/',  # Specify the upload directory\n        blank=True,           # Allow the field to be empty\n        null=True,            # Allow the database field to be null",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "ShoppingOrder",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class ShoppingOrder(models.Model):\n    \"\"\"\n    Order model.\n    \"\"\"\n    PAYMENT_STATUS_PENDING = 'P'\n    PAYMENT_STATUS_COMPLETE = 'C'\n    PAYMENT_STATUS_FAILED = 'F'\n    PAYMENT_STATUS_CHOICES = [\n        (PAYMENT_STATUS_PENDING, 'Pending'),\n        (PAYMENT_STATUS_COMPLETE, 'Complete'),",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "ShoppingOrderItem",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class ShoppingOrderItem(models.Model):\n    \"\"\"\n    OrderItem Model.\n    \"\"\"\n    quantity = models.PositiveIntegerField()\n    unit_price = models.DecimalField(max_digits=8, decimal_places=2)\n    products = models.ForeignKey(Products, on_delete=models.PROTECT, related_name='orderitems')\n    order = models.ForeignKey(ShoppingOrder, on_delete=models.PROTECT)\nclass ShoppingCart(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid4)",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "ShoppingCart",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class ShoppingCart(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid4)\n    created_at = models.DateTimeField(auto_now_add=True)\nclass ShoppingCartItem(models.Model):\n    cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name='items')\n    product = models.ForeignKey(Products, on_delete=models.CASCADE)\n    quantity = models.PositiveSmallIntegerField(\n        validators=[MinValueValidator(1)]\n    )\n    class Meta:",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "ShoppingCartItem",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class ShoppingCartItem(models.Model):\n    cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name='items')\n    product = models.ForeignKey(Products, on_delete=models.CASCADE)\n    quantity = models.PositiveSmallIntegerField(\n        validators=[MinValueValidator(1)]\n    )\n    class Meta:\n        unique_together = [['cart', 'product']] #the same product cannot be added multiple times to the same cart\n                                                # no duplicate product entries in the same cart\nclass Review(models.Model):",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Review",
+        "kind": 6,
+        "importPath": "Affordeals.store.models",
+        "description": "Affordeals.store.models",
+        "peekOfCode": "class Review(models.Model):\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    date = models.DateTimeField(auto_now_add=True)\n    product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='reviews')",
+        "detail": "Affordeals.store.models",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminOrReadOnly",
+        "kind": 6,
+        "importPath": "Affordeals.store.permissions",
+        "description": "Affordeals.store.permissions",
+        "peekOfCode": "class IsAdminOrReadOnly(permissions.BasePermission):\n  def has_permission(self, request, view):\n    if request.method in permissions.SAFE_METHODS:\n      return True\n    return bool(request.user and request.user.is_staff)\nclass FullPermissions(permissions.DjangoModelPermissions):\n  def __init__(self) -> None:\n    self.perms_map['GET'] = ['%(app_label)s.view_%(model_name)s']",
+        "detail": "Affordeals.store.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "FullPermissions",
+        "kind": 6,
+        "importPath": "Affordeals.store.permissions",
+        "description": "Affordeals.store.permissions",
+        "peekOfCode": "class FullPermissions(permissions.DjangoModelPermissions):\n  def __init__(self) -> None:\n    self.perms_map['GET'] = ['%(app_label)s.view_%(model_name)s']",
+        "detail": "Affordeals.store.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "SiteUserSerializer",
+        "kind": 6,
+        "importPath": "Affordeals.store.serializers",
+        "description": "Affordeals.store.serializers",
+        "peekOfCode": "class SiteUserSerializer(serializers.ModelSerializer):\n  user_id = serializers.IntegerField()\n  class Meta:\n    model = SiteUser\n    fields = ['id', 'user_id', 'birth_date', 'phone_number']\nclass ProductsSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Products\n    fields = ['id', 'name', 'unit_price']\nclass CategorySerializer(serializers.ModelSerializer):",
+        "detail": "Affordeals.store.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProductsSerializer",
+        "kind": 6,
+        "importPath": "Affordeals.store.serializers",
+        "description": "Affordeals.store.serializers",
+        "peekOfCode": "class ProductsSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Products\n    fields = ['id', 'name', 'unit_price']\nclass CategorySerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Category\n    fields = ['id', 'name']\nclass CustomProductSerializer(serializers.ModelSerializer):\n  class Meta:",
+        "detail": "Affordeals.store.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CategorySerializer",
+        "kind": 6,
+        "importPath": "Affordeals.store.serializers",
+        "description": "Affordeals.store.serializers",
+        "peekOfCode": "class CategorySerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Category\n    fields = ['id', 'name']\nclass CustomProductSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Products\n    fields = ['id', 'name', 'unit_price']\nclass ShoppingOrderItemSerializer(serializers.ModelSerializer):\n  products = CustomProductSerializer",
+        "detail": "Affordeals.store.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CustomProductSerializer",
+        "kind": 6,
+        "importPath": "Affordeals.store.serializers",
+        "description": "Affordeals.store.serializers",
+        "peekOfCode": "class CustomProductSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = Products\n    fields = ['id', 'name', 'unit_price']\nclass ShoppingOrderItemSerializer(serializers.ModelSerializer):\n  products = CustomProductSerializer\n  class Meta:\n    model = ShoppingOrderItem\n    fields = ['id', 'products', 'quantity']\nclass ShoppingOrderSerializer(serializers.ModelSerializer):",
+        "detail": "Affordeals.store.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ShoppingOrderItemSerializer",
+        "kind": 6,
+        "importPath": "Affordeals.store.serializers",
+        "description": "Affordeals.store.serializers",
+        "peekOfCode": "class ShoppingOrderItemSerializer(serializers.ModelSerializer):\n  products = CustomProductSerializer\n  class Meta:\n    model = ShoppingOrderItem\n    fields = ['id', 'products', 'quantity']\nclass ShoppingOrderSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = ShoppingOrder\n    fields = ['id', 'created_at', 'siteuser', 'payment_status']",
+        "detail": "Affordeals.store.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ShoppingOrderSerializer",
+        "kind": 6,
+        "importPath": "Affordeals.store.serializers",
+        "description": "Affordeals.store.serializers",
+        "peekOfCode": "class ShoppingOrderSerializer(serializers.ModelSerializer):\n  class Meta:\n    model = ShoppingOrder\n    fields = ['id', 'created_at', 'siteuser', 'payment_status']",
+        "detail": "Affordeals.store.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "Affordeals.store.urls",
+        "description": "Affordeals.store.urls",
+        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register('siteuser', SiteUserViewSet)\nrouter.register('product', ProductsViewSet, basename='products')\nrouter.register('category', CategoryViewSet)\nrouter.register('order', ShoppingOrderViewSet)\nrouter.register('items', ShoppingOrderItemViewSet)\nurlpatterns = [\n  path('', include(router.urls)),\n]",
+        "detail": "Affordeals.store.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "Affordeals.store.urls",
+        "description": "Affordeals.store.urls",
+        "peekOfCode": "urlpatterns = [\n  path('', include(router.urls)),\n]",
+        "detail": "Affordeals.store.urls",
+        "documentation": {}
+    },
+    {
+        "label": "SiteUserViewSet",
+        "kind": 6,
+        "importPath": "Affordeals.store.views",
+        "description": "Affordeals.store.views",
+        "peekOfCode": "class SiteUserViewSet(ModelViewSet):\n  queryset = SiteUser.objects.all()\n  serializer_class = SiteUserSerializer\n  permission_classes = [IsAdminUser]\n  @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated])\n  def me(self, request):\n    (siteuser, created) = SiteUser.objects.get_or_create(user_id=request.user.id)\n    if request.method == 'GET':\n      serializer = SiteUserSerializer(siteuser)\n      return Response(serializer.data)",
+        "detail": "Affordeals.store.views",
+        "documentation": {}
+    },
+    {
+        "label": "ProductsViewSet",
+        "kind": 6,
+        "importPath": "Affordeals.store.views",
+        "description": "Affordeals.store.views",
+        "peekOfCode": "class ProductsViewSet(ModelViewSet):\n  queryset = Products.objects.all()\n  serializer_class = ProductsSerializer\n  permission_classes = [IsAdminOrReadOnly]\nclass CategoryViewSet(ModelViewSet):\n  queryset = Category.objects.all()\n  serializer_class = CategorySerializer\n  permission_classes = [IsAdminOrReadOnly]\nclass ShoppingOrderViewSet(ModelViewSet):\n  queryset = ShoppingOrder.objects.all()",
+        "detail": "Affordeals.store.views",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryViewSet",
+        "kind": 6,
+        "importPath": "Affordeals.store.views",
+        "description": "Affordeals.store.views",
+        "peekOfCode": "class CategoryViewSet(ModelViewSet):\n  queryset = Category.objects.all()\n  serializer_class = CategorySerializer\n  permission_classes = [IsAdminOrReadOnly]\nclass ShoppingOrderViewSet(ModelViewSet):\n  queryset = ShoppingOrder.objects.all()\n  serializer_class = ShoppingOrderSerializer\n  permission_classes = [IsAuthenticated]\nclass ShoppingOrderItemViewSet(ModelViewSet):\n  queryset = ShoppingOrderItem.objects.all()",
+        "detail": "Affordeals.store.views",
+        "documentation": {}
+    },
+    {
+        "label": "ShoppingOrderViewSet",
+        "kind": 6,
+        "importPath": "Affordeals.store.views",
+        "description": "Affordeals.store.views",
+        "peekOfCode": "class ShoppingOrderViewSet(ModelViewSet):\n  queryset = ShoppingOrder.objects.all()\n  serializer_class = ShoppingOrderSerializer\n  permission_classes = [IsAuthenticated]\nclass ShoppingOrderItemViewSet(ModelViewSet):\n  queryset = ShoppingOrderItem.objects.all()\n  serializer_class = ShoppingOrderItemSerializer\n  permission_classes = [IsAuthenticated]",
+        "detail": "Affordeals.store.views",
+        "documentation": {}
+    },
+    {
+        "label": "ShoppingOrderItemViewSet",
+        "kind": 6,
+        "importPath": "Affordeals.store.views",
+        "description": "Affordeals.store.views",
+        "peekOfCode": "class ShoppingOrderItemViewSet(ModelViewSet):\n  queryset = ShoppingOrderItem.objects.all()\n  serializer_class = ShoppingOrderItemSerializer\n  permission_classes = [IsAuthenticated]",
+        "detail": "Affordeals.store.views",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "Affordeals.manage",
+        "description": "Affordeals.manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Affordeals.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "Affordeals.manage",
+        "documentation": {}
+    }
+]
