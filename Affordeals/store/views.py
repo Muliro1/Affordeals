@@ -2,11 +2,14 @@ from django.shortcuts import get_object_or_404, render
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser, DjangoModelPermissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
 from .serializers import SiteUserSerializer
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem, ShoppingCart
+from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem, Review, ShoppingCart, ShoppingCartItem, ShoppingCart
 from .serializers import SiteUserSerializer, ProductsSerializer, CategorySerializer,\
-                         ShoppingOrderSerializer, ShoppingOrderItemSerializer
+                         ShoppingOrderSerializer, ShoppingOrderItemSerializer, ReviewSerializer,\
+                         ShoppingCartSerializer, ShoppingCartItemSerializer, AddShoppingCartItemSerializer,\
+                         UpdateShoppingCartItemSerializer, NewOrderSerializer, UpdateShoppingOrderSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 from django.contrib.auth.decorators import login_required
 from intasend import APIService
@@ -32,7 +35,6 @@ class SiteUserViewSet(ModelViewSet):
   serializer_class = SiteUserSerializer
   permission_classes = [IsAdminUser]
 
-
   @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated])
   def me(self, request):
     """
@@ -43,7 +45,7 @@ class SiteUserViewSet(ModelViewSet):
       - PUT: Updates the authenticated user's site user profile
         with the provided data.
     """
-    (siteuser, created) = SiteUser.objects.get_or_create(user_id=request.user.id)
+    siteuser = SiteUser.objects.get(user_id=request.user.id)
     if request.method == 'GET':
       serializer = SiteUserSerializer(siteuser)
       return Response(serializer.data)
@@ -86,21 +88,36 @@ class CategoryViewSet(ModelViewSet):
   permission_classes = [IsAdminOrReadOnly]
 
 class ShoppingOrderViewSet(ModelViewSet):
-  """
-    A viewset for viewing and editing ShoppingOrder instances.
+  http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
+  def get_permissions(self):
+    if self.request.method in ['PATCH', 'DELETE']:
+      return [IsAdminUser()]
+    return [IsAuthenticated()]
 
-    Attributes:
-    - queryset (QuerySet): The queryset for retrieving ShoppingOrder
-      instances.
-    - serializer_class (Serializer): The serializer class to use for
-      ShoppingOrder instances.
-    - permission_classes (list): The permission classes to apply to
-      this viewset.
-  """
-  queryset = ShoppingOrder.objects.all()
-  serializer_class = ShoppingOrderSerializer
-  permission_classes = [IsAuthenticated]
+  def create(self, request, *args, **kwargs):
+    serializer = NewOrderSerializer(
+      data=request.data,
+      context={'user_id': self.request.user.id}
+      )
+    serializer.is_valid(raise_exception=True)
+    new_order = serializer.save()
+    serializer = ShoppingOrderSerializer(new_order)
+    return Response(serializer.data)
+ 
 
+  def get_serializer_class(self):
+    if self.request.method == 'POST':
+      return NewOrderSerializer
+    if self.request.method == 'PATCH':
+      return UpdateShoppingOrderSerializer
+    return ShoppingOrderSerializer
+
+  def get_queryset(self):
+    user = self.request.user
+    if user.is_staff:
+      return ShoppingOrder.objects.all()
+    id = SiteUser.objects.only('id').get(user_id=user.id)
+    return ShoppingOrder.objects.filter(siteuser_id=id)
 
 class ShoppingOrderItemViewSet(ModelViewSet):
   """
@@ -118,30 +135,30 @@ class ShoppingOrderItemViewSet(ModelViewSet):
   serializer_class = ShoppingOrderItemSerializer
   permission_classes = [IsAuthenticated]
 
-@login_required
-def checkout(request, product_id):
-    product = get_object_or_404(Products, id=product_id)
-    user = request.user
+def checkout(request):
+  return render(request, 'store/shoppingcart.html')
+class ReviewViewSet(ModelViewSet):
+  queryset = Review.objects.all()
+  serializer_class = ReviewSerializer
 
-    # Create or get the shopping order for the user with 'Pending' payment status
-    shopping_order, _ = ShoppingOrder.objects.get_or_create(siteuser=user, payment_status='Pending')
 
-    # Create or update the shopping order item
-    order_item, created = ShoppingOrderItem.objects.get_or_create(
-        order=shopping_order,  # Link to the shopping order
-        products=product,  # Link to the product
-        defaults={'quantity': 1, 'unit_price': product.unit_price}  # Default values for new item
-    )
-    if not created:
-        order_item.quantity += 1  # Increase quantity if the item already exists
-        order_item.save()
+class ShoppingCartViewSet(CreateModelMixin, RetrieveModelMixin,
+                          DestroyModelMixin, GenericViewSet):
+  queryset = ShoppingCart.objects.prefetch_related('cartitems__product').all()
+  serializer_class = ShoppingCartSerializer
 
-    context = {'orders': shopping_order, 'products': product}
-    return render(request, 'store/shoppingcart.html', {'context': context})
+class ShoppingCartItemViewSet(ModelViewSet):
+  http_method_names = ['get', 'post', 'patch', 'delete']
+  def get_serializer_class(self):
+    if self.request.method == 'POST':
+      return AddShoppingCartItemSerializer
+    elif self.request.method == 'PATCH':
+      return UpdateShoppingCartItemSerializer
+    return ShoppingCartItemSerializer
 
-def purchase(request):
-    service = APIService(token=TEST_API_TOKEN, publishable_key=TEST_PUBLISHABLE_KEY, test=True)
-    response = service.collect.checkout(phone_number=254727563415,
-                                        email="mulirokhaemba@gmail.com",  currency="KES", amount=10,
-                                        comment="Service Fees", redirect_url="http://example.com/thank-you")
-    return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
+  def get_queryset(self):
+    return ShoppingCartItem.objects.\
+           filter(cart_id=self.kwargs['cart_pk']).select_related('product')
+  
+  def get_serializer_context(self):
+    return {'cart_id': self.kwargs['cart_pk']}
