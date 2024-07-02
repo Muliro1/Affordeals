@@ -142,6 +142,6 @@ def checkout(request, product_id):
 def purchase(request):
     service = APIService(token=TEST_API_TOKEN, publishable_key=TEST_PUBLISHABLE_KEY, test=True)
     response = service.collect.checkout(phone_number=254727563415,
-                                        email="mulirokhaemba@gmail.com", amount=10, currency="KES",
+                                        email="mulirokhaemba@gmail.com",  currency="KES", amount=10,
                                         comment="Service Fees", redirect_url="http://example.com/thank-you")
     return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
