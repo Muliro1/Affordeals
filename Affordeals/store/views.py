@@ -9,8 +9,11 @@ from .serializers import SiteUserSerializer, ProductsSerializer, CategorySeriali
                          ShoppingOrderSerializer, ShoppingOrderItemSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 from django.contrib.auth.decorators import login_required
+from intasend import APIService
+import requests
 
-
+TEST_PUBLISHABLE_KEY = 'ISPubKey_test_da0cd304-2ffc-4197-b713-90b18c1a33e8'
+TEST_API_TOKEN = 'ISSecretKey_test_c0c0845b-c2c2-45c4-826b-1c4798d66bcf'
 class SiteUserViewSet(ModelViewSet):
   """
     A viewset for viewing and editing SiteUser instances.
@@ -135,3 +138,10 @@ def checkout(request, product_id):
 
     context = {'orders': shopping_order, 'products': product}
     return render(request, 'store/shoppingcart.html', {'context': context})
+
+def purchase(request):
+    service = APIService(token=TEST_API_TOKEN, publishable_key=TEST_PUBLISHABLE_KEY, test=True)
+    response = service.collect.checkout(phone_number=254727563415,
+                                        email="mulirokhaemba@gmail.com", amount=10, currency="KES",
+                                        comment="Service Fees", redirect_url="http://example.com/thank-you")
+    return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
