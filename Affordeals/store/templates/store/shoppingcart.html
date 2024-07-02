@@ -1,4 +1,5 @@
 {% extends "main/base.html"%}
+{% debug %}
      {% block content %} 
      <style>
 .icon-hover-primary:hover {
@@ -26,10 +27,10 @@
                 <div class="col-lg-5">
                   <div class="me-lg-5">
                     <div class="d-flex">
-                      <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/11.webp" class="border rounded me-3" style="width: 96px; height: 96px;" />
+                      <img src="{{ context.products.image.url }}" class="border rounded me-3" style="width: 96px; height: 96px;" />
                       <div class="">
-                        <a href="#" class="nav-link">{{product.name}}</a>
-                        <p class="text-muted">{{product.unit_price}}</p>
+                        <a href="#" class="nav-link">{{context.products.name}}</a>
+                        <p class="text-muted">{{context.products.unit_price}}</p>
                       </div>
                     </div>
                   </div>
@@ -44,8 +45,8 @@
                     </select>
                   </div>
                   <div class="">
-                    <text class="h6">$1156.00</text> <br />
-                    <small class="text-muted text-nowrap"> {{product.unit_price}} / per item </small>
+                    <text class="h6">{{context.products.unit_price}}</text> <br />
+                    <small class="text-muted text-nowrap"> {{context.product.unit_price}} / per item </small>
                   </div>
                 </div>
                 <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">

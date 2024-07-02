@@ -133,5 +133,5 @@ def checkout(request, product_id):
         order_item.quantity += 1  # Increase quantity if the item already exists
         order_item.save()
 
-    #context = {'orders': shopping_order, 'products': product}
-    return render(request, 'store/shoppingcart.html', {product: product, shopping_order: shopping_order})
+    context = {'orders': shopping_order, 'products': product}
+    return render(request, 'store/shoppingcart.html', {'context': context})
