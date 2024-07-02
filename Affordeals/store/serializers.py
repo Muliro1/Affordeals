@@ -1,5 +1,4 @@
-from .models import Category, SiteUser, Products, ShoppingOrder,\
-                    ShoppingOrderItem, ShoppingCart, ShoppingCartItem
+from .models import Category, SiteUser, Products, ShoppingOrder, ShoppingCart, ShoppingCartItem, ShoppingOrderItem
 from rest_framework import serializers
 
 

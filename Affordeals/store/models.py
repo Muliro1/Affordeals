@@ -169,7 +169,7 @@ class ShoppingOrderItem(models.Model):
     order = models.ForeignKey(ShoppingOrder, on_delete=models.PROTECT, related_name='items')
 
     def __str__(self) -> str:
-        return f"Order Item {self.id}"
+        return f"Order Item {self.id}" 
 
 
 class ShoppingCart(models.Model):
