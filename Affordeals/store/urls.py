@@ -19,12 +19,11 @@ product_router.register('reviews', ReviewViewSet, basename='products-reviews' )
 cartRouter = routers.NestedDefaultRouter(router, 'carts', lookup='cart')
 cartRouter.register('cartitems', ShoppingCartItemViewSet, basename='cart-cartitems')
 
-orderRouter = routers.NestedDefaultRouter(router, 'orders', lookup='order')
-orderRouter.register('items', ShoppingOrderItemViewSet, basename='orders-items')
+# orderRouter = routers.NestedDefaultRouter(router, 'orders', lookup='order')
+# orderRouter.register('items', ShoppingOrderItemViewSet, basename='orders-items')
 
 urlpatterns = [
   path('', include(router.urls)),
   path('', include(product_router.urls)),
   path('', include(cartRouter.urls)),
-  path('', include(orderRouter.urls)),
 ]

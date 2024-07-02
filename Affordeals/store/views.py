@@ -85,7 +85,7 @@ class ShoppingCartItemViewSet(ModelViewSet):
 
   def get_queryset(self):
     return ShoppingCartItem.objects.\
-           filter(cart_id=self.kwargs['cart_pk'])#.\select_related('product')
+           filter(cart_id=self.kwargs['cart_pk']).select_related('product')
   
   def get_serializer_context(self):
     return {'cart_id': self.kwargs['cart_pk']}
