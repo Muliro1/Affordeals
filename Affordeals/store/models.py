@@ -88,6 +88,9 @@ class Category(models.Model):
         blank=True
     )
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Products(models.Model):
     """
@@ -108,7 +111,7 @@ class Products(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     image = models.ImageField(
-        upload_to='images/',
+        upload_to='media/',
         blank=True,           # Allow the field to be empty
         null=True,            # Allow the database field to be null
         help_text='Upload an image file (optional)'  # Optional help text for admin interface
@@ -116,6 +119,9 @@ class Products(models.Model):
     description = models.TextField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
     quantity_in_stock = models.IntegerField()
+
+    def __str__(self) -> str:
+        return self.name
 
 class ShoppingOrder(models.Model):
     """
@@ -142,6 +148,9 @@ class ShoppingOrder(models.Model):
             ('cancel_order', 'Can cancel order')
         ]
 
+    def __str__(self) -> str:
+        return f"Order {self.id}"
+
 
 class ShoppingOrderItem(models.Model):
     """
@@ -158,6 +167,9 @@ class ShoppingOrderItem(models.Model):
     products = models.ForeignKey(Products, on_delete=models.PROTECT, related_name='orderitems')
     order = models.ForeignKey(ShoppingOrder, on_delete=models.PROTECT, related_name='items')
 
+    def __str__(self) -> str:
+        return f"Order Item {self.id}"
+
 
 class ShoppingCart(models.Model):
     """
@@ -170,6 +182,9 @@ class ShoppingCart(models.Model):
     """
     id = models.UUIDField(primary_key=True, default=uuid4)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"Cart {self.id}"
 
 
 class ShoppingCartItem(models.Model):
@@ -194,6 +209,8 @@ class ShoppingCartItem(models.Model):
 
     class Meta:
         unique_together = [['cart', 'product']]
+
+
 
 
 class Review(models.Model):

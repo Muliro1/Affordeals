@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages 
 from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
+from store.models import Products, ShoppingCart, ShoppingCartItem, ShoppingOrder
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -22,7 +24,12 @@ def about(request):
 @login_required 
 def account(request):
     return render(request, 'main/account.html')
+
 @login_required
 def product_view(request):
-    return render(request, 'main/home.html')
+    products = Products.objects.all()
+    paginator = Paginator(products, 12)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'main/home.html', {'page_obj': page_obj})
 
