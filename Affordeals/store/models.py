@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.validators import MinValueValidator
 from django.db import models
 from uuid import uuid4
+from main.models import User, profile
 
 
 class SiteUser(models.Model):
@@ -141,7 +142,7 @@ class ShoppingOrder(models.Model):
     payment_status = models.CharField(max_length=1,
                         choices=PAYMENT_STATUS_CHOICES,
                         default=PAYMENT_STATUS_PENDING)
-    siteuser = models.ForeignKey(SiteUser, on_delete=models.PROTECT)
+    siteuser = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         permissions = [

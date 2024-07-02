@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser, DjangoModelPermissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -8,6 +8,7 @@ from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderIt
 from .serializers import SiteUserSerializer, ProductsSerializer, CategorySerializer,\
                          ShoppingOrderSerializer, ShoppingOrderItemSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
+from django.contrib.auth.decorators import login_required
 
 
 class SiteUserViewSet(ModelViewSet):
@@ -114,6 +115,13 @@ class ShoppingOrderItemViewSet(ModelViewSet):
   serializer_class = ShoppingOrderItemSerializer
   permission_classes = [IsAuthenticated]
 
-def checkout(request):
-  cart = ShoppingCart
+@login_required
+def checkout(request, product_id):
+  product = get_object_or_404(Products, id=product_id)
+   
+  '''order = ShoppingOrder.objects.create(siteuser=request.user, payment_status='Pending',unit_price=product.price, quantity=1, products=product)
+  order.save()
+  product = Products.objects.create(id=request.user.id, title='test', description='test', price=5)
+  
+  context = {'orders': order, 'products': product}'''
   return render(request, 'store/shoppingcart.html')

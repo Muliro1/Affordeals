@@ -22,14 +22,15 @@
           <div class="card border shadow-0">
             <div class="m-4">
               <h4 class="card-title mb-4">Your shopping cart</h4>
+              {% for order in orders %}
               <div class="row gy-3 mb-4">
                 <div class="col-lg-5">
                   <div class="me-lg-5">
                     <div class="d-flex">
                       <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/11.webp" class="border rounded me-3" style="width: 96px; height: 96px;" />
                       <div class="">
-                        <a href="#" class="nav-link">Winter jacket for men and lady</a>
-                        <p class="text-muted">Yellow, Jeans</p>
+                        <a href="#" class="nav-link">name</a>
+                        <p class="text-muted">price</p>
                       </div>
                     </div>
                   </div>
@@ -55,4 +56,5 @@
                   </div>
                 </div>
               </div>
+              {% endfor %}
 {% endblock content %}
