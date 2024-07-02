@@ -88,6 +88,9 @@ class Category(models.Model):
         blank=True
     )
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Products(models.Model):
     """
@@ -108,7 +111,7 @@ class Products(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     image = models.ImageField(
-        upload_to='images/',
+        upload_to='media/',
         blank=True,           # Allow the field to be empty
         null=True,            # Allow the database field to be null
         help_text='Upload an image file (optional)'  # Optional help text for admin interface

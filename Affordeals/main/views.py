@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages 
 from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
+from store.models import Products, ShoppingCart, ShoppingCartItem, ShoppingOrder
 
 # Create your views here.
 
@@ -22,7 +23,9 @@ def about(request):
 @login_required 
 def account(request):
     return render(request, 'main/account.html')
+
 @login_required
 def product_view(request):
-    return render(request, 'main/home.html')
+    products = Products.objects.all()
+    return render(request, 'main/home.html', {'products': products})
 
