@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from .serializers import SiteUserSerializer
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem
+from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem, ShoppingCart
 from .serializers import SiteUserSerializer, ProductsSerializer, CategorySerializer,\
                          ShoppingOrderSerializer, ShoppingOrderItemSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
@@ -115,4 +115,5 @@ class ShoppingOrderItemViewSet(ModelViewSet):
   permission_classes = [IsAuthenticated]
 
 def checkout(request):
+  cart = ShoppingCart
   return render(request, 'store/shoppingcart.html')
