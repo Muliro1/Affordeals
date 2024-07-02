@@ -114,3 +114,5 @@ class ShoppingOrderItemViewSet(ModelViewSet):
   serializer_class = ShoppingOrderItemSerializer
   permission_classes = [IsAuthenticated]
 
+def checkout(request):
+  return render(request, 'store/shoppingcart.html')
