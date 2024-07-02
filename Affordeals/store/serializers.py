@@ -2,6 +2,7 @@ from django.db import transaction
 from .models import Category, SiteUser, Products, ShoppingOrder,\
                     ShoppingOrderItem, ShoppingCart, ShoppingCartItem, Review
 from rest_framework import serializers
+from main.serializers import UserSerializer
 
 
 class SiteUserSerializer(serializers.ModelSerializer):
@@ -43,7 +44,7 @@ class ShoppingOrderSerializer(serializers.ModelSerializer):
   class Meta:
     model = ShoppingOrder
     fields = ['id', 'created_at', 'siteuser', 'items', 'payment_status', 'total_price']
-  
+
   def get_total_price(self, order_items: ShoppingOrder):
     return sum([item.products.unit_price * item.quantity for item in order_items.items.all()])
 
@@ -113,6 +114,7 @@ class UpdateShoppingCartItemSerializer(serializers.ModelSerializer):
     model = ShoppingCartItem
     fields = ['quantity']
 
+
 class NewOrderSerializer(serializers.Serializer):
   cart_id = serializers.UUIDField()
 
@@ -129,8 +131,8 @@ class NewOrderSerializer(serializers.Serializer):
 
   def save(self, **kwargs):
     with transaction.atomic():
-      user_id = self.context['request'].user.id
-      (customer, created) = SiteUser.objects.get_or_create(user_id=user_id)
+      user_id = self.context['user_id']
+      customer = SiteUser.objects.get(user_id=user_id)
       my_order = ShoppingOrder.objects.create(siteuser=customer)
       cart_id = self.validated_data['cart_id']
       cartitems = ShoppingCartItem.objects.\
@@ -148,7 +150,12 @@ class NewOrderSerializer(serializers.Serializer):
             quantity=item.quantity
           )
         )
-        index += 1
+        index += 1 
       ShoppingOrderItem.objects.bulk_create(order_list_items)
       ShoppingCart.objects.filter(pk=cart_id).delete()
-      #return my_order
+      return my_order
+
+class UpdateShoppingOrderSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = ShoppingOrder
+    fields = ['payment_status']
