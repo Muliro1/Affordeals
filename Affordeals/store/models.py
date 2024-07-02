@@ -119,6 +119,7 @@ class Products(models.Model):
     description = models.TextField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
     quantity_in_stock = models.IntegerField()
+    
 
     def __str__(self) -> str:
         return self.name
@@ -201,7 +202,8 @@ class ShoppingCartItem(models.Model):
     unique_together = [['cart', 'product']] ensures that each product can only
     be added to a specific cart once, preventing duplicates.
     """
-    cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name='items')
+
+    cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name='cartitems')
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(
         validators=[MinValueValidator(1)]
