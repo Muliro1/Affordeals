@@ -161,12 +161,9 @@ DJOSER = {
     }
 }
 
-<<<<<<< HEAD
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'product'
 LOGIN_URL = 'login'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #BASE_DIR / 'media'
 MEDIA_URL = '/media/'
-=======
 INTERNAL_IPS = ['127.0.0.1']
->>>>>>> api
