@@ -86,10 +86,15 @@ WSGI_APPLICATION = 'Affordeals.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
-        },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'affordeals_db',
+        'USER': 'root',
+        'PASSWORD': 'Password',
+        'HOST': 'localhost',
+        'PORT': '',  # Default MySQL port
     }
+}
+
 
 
 

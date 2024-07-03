@@ -29,7 +29,6 @@ admin.site.index_title = 'Admin Nathan'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', user_views.home, name='home'),
-    #path('login/', user_views.login, name='login'),
     path('account/', user_views.account, name='account'),
     path('login/', auth_views.LoginView.as_view(template_name='main/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='main/logout.html'), name='logout'),
@@ -38,8 +37,10 @@ urlpatterns = [
     path('checkout/', store_views.checkout, name='checkout'),
     path('store/', include('store.urls')),
     path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt'))
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('auth/', include('djoser.urls.jwt')),
+]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
