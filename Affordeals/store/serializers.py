@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-from .models import Category, SiteUser, Products, ShoppingOrder, ShoppingCart, ShoppingCartItem, ShoppingOrderItem
-=======
-from django.db import transaction
-from .models import Category, SiteUser, Products, ShoppingOrder,\
-                    ShoppingOrderItem, ShoppingCart, ShoppingCartItem, Review
->>>>>>> main
+from .models import Category, SiteUser, Products, ShoppingOrder, ShoppingCart, ShoppingCartItem, ShoppingOrderItem, Review
 from rest_framework import serializers
 from main.serializers import UserSerializer
 
