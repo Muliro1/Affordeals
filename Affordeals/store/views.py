@@ -2,11 +2,14 @@ from django.shortcuts import get_object_or_404, render
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser, DjangoModelPermissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
 from .serializers import SiteUserSerializer
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem, ShoppingCart
+from .models import SiteUser, Products, Category, ShoppingOrder, ShoppingOrderItem, Review, ShoppingCart, ShoppingCartItem, ShoppingCart
 from .serializers import SiteUserSerializer, ProductsSerializer, CategorySerializer,\
-                         ShoppingOrderSerializer, ShoppingOrderItemSerializer
+                         ShoppingOrderSerializer, ShoppingOrderItemSerializer, ReviewSerializer,\
+                         ShoppingCartSerializer, ShoppingCartItemSerializer, AddShoppingCartItemSerializer,\
+                         UpdateShoppingCartItemSerializer, NewOrderSerializer, UpdateShoppingOrderSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 from django.contrib.auth.decorators import login_required
 from intasend import APIService
@@ -33,7 +36,6 @@ class SiteUserViewSet(ModelViewSet):
   serializer_class = SiteUserSerializer
   permission_classes = [IsAdminUser]
 
-
   @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated])
   def me(self, request):
     """
@@ -44,7 +46,7 @@ class SiteUserViewSet(ModelViewSet):
       - PUT: Updates the authenticated user's site user profile
         with the provided data.
     """
-    (siteuser, created) = SiteUser.objects.get_or_create(user_id=request.user.id)
+    siteuser = SiteUser.objects.get(user_id=request.user.id)
     if request.method == 'GET':
       serializer = SiteUserSerializer(siteuser)
       return Response(serializer.data)
@@ -87,21 +89,36 @@ class CategoryViewSet(ModelViewSet):
   permission_classes = [IsAdminOrReadOnly]
 
 class ShoppingOrderViewSet(ModelViewSet):
-  """
-    A viewset for viewing and editing ShoppingOrder instances.
+  http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
+  def get_permissions(self):
+    if self.request.method in ['PATCH', 'DELETE']:
+      return [IsAdminUser()]
+    return [IsAuthenticated()]
 
-    Attributes:
-    - queryset (QuerySet): The queryset for retrieving ShoppingOrder
-      instances.
-    - serializer_class (Serializer): The serializer class to use for
-      ShoppingOrder instances.
-    - permission_classes (list): The permission classes to apply to
-      this viewset.
-  """
-  queryset = ShoppingOrder.objects.all()
-  serializer_class = ShoppingOrderSerializer
-  permission_classes = [IsAuthenticated]
+  def create(self, request, *args, **kwargs):
+    serializer = NewOrderSerializer(
+      data=request.data,
+      context={'user_id': self.request.user.id}
+      )
+    serializer.is_valid(raise_exception=True)
+    new_order = serializer.save()
+    serializer = ShoppingOrderSerializer(new_order)
+    return Response(serializer.data)
+ 
 
+  def get_serializer_class(self):
+    if self.request.method == 'POST':
+      return NewOrderSerializer
+    if self.request.method == 'PATCH':
+      return UpdateShoppingOrderSerializer
+    return ShoppingOrderSerializer
+
+  def get_queryset(self):
+    user = self.request.user
+    if user.is_staff:
+      return ShoppingOrder.objects.all()
+    id = SiteUser.objects.only('id').get(user_id=user.id)
+    return ShoppingOrder.objects.filter(siteuser_id=id)
 
 class ShoppingOrderItemViewSet(ModelViewSet):
   """
