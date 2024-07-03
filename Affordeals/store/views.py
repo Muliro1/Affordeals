@@ -158,3 +158,34 @@ class ShoppingCartItemViewSet(ModelViewSet):
   
   def get_serializer_context(self):
     return {'cart_id': self.kwargs['cart_pk']}
+
+
+###### TESTING   ########
+
+@login_required
+def checkout(request, product_id):
+    product = get_object_or_404(Products, id=product_id)
+    user = request.user
+
+    # Create or get the shopping order for the user with 'Pending' payment status
+    shopping_order, _ = ShoppingOrder.objects.get_or_create(siteuser=user, payment_status='Pending')
+
+    # Create or update the shopping order item
+    order_item, created = ShoppingOrderItem.objects.get_or_create(
+        order=shopping_order,  # Link to the shopping order
+        products=product,  # Link to the product
+        defaults={'quantity': 1, 'unit_price': product.unit_price}  # Default values for new item
+    )
+    if not created:
+        order_item.quantity += 1  # Increase quantity if the item already exists
+        order_item.save()
+
+    context = {'orders': shopping_order, 'products': product}
+    return render(request, 'store/shoppingcart.html', {'context': context})
+
+def purchase(request):
+    service = APIService(token=TEST_API_TOKEN, publishable_key=TEST_PUBLISHABLE_KEY, test=True)
+    response = service.collect.checkout(phone_number=254727563415,
+                                        email="mulirokhaemba@gmail.com", amount=10, currency="KES",
+                                        comment="Service Fees", redirect_url="http://example.com/thank-you")
+    return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
