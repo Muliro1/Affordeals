@@ -1,0 +1,63 @@
+{% extends "main/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+    <style>
+
+        form {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form legend {
+    font-weight: bold;
+    color: #343a40;
+}
+
+form .form-group label {
+    color: #343a40;
+}
+
+form .form-group input {
+    background-color: #e9ecef;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+form .form-group button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+form .form-group button:hover {
+    background-color: #0069d9;
+}
+    </style>
+                <h1>Welcome to Affordeals, your one stop shop <br>for affordable used and new products.</h1>
+
+
+    <div class="col">
+        
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-primary btn-dark" type="submit">Sign Up</button>
+            </div>
+      </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here.</a></p>
+    </div>
+          </div>
+        </div>
+    </div>
+    
+
+{% endblock content %}

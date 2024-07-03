@@ -17,14 +17,29 @@ Including another URLconf
 import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
+from main import views as user_views
+from store import views as store_views
+from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 admin.site.site_header = 'Affordeal Site'
 admin.site.index_title = 'Admin Nathan'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', user_views.home, name='home'),
+    #path('login/', user_views.login, name='login'),
+    path('account/', user_views.account, name='account'),
+    path('login/', auth_views.LoginView.as_view(template_name='main/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='main/logout.html'), name='logout'),
+    path('about/', user_views.about, name='about'),
+    path('products/', user_views.product_view, name='product'),
+    path('checkout/', store_views.checkout, name='checkout'),
     path('store/', include('store.urls')),
     path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-    path('__debug__', include(debug_toolbar.urls))
-]
+    path('auth/', include('djoser.urls.jwt'))
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

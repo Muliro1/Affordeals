@@ -6,28 +6,68 @@ from main.serializers import UserSerializer
 
 
 class SiteUserSerializer(serializers.ModelSerializer):
+  """
+    Serializer for SiteUser model.
+
+    Fields:
+    - id (int): The unique identifier of the site user.
+    - user_id (int): The ID of the associated user.
+    - birth_date (Date): The birth date of the site user.
+    - phone_number (str): The phone number of the site user.
+  """
   user_id = serializers.IntegerField()
   class Meta:
     model = SiteUser
     fields = ['id', 'user_id', 'birth_date', 'phone_number']
 
 class ProductsSerializer(serializers.ModelSerializer):
+  """
+    Serializer for Products model.
+
+    Fields:
+    - id (int): The unique identifier of the product.
+    - name (str): The name of the product.
+    - unit_price (Decimal): The unit price of the product.
+  """
   class Meta:
     model = Products
     fields = ['id', 'name', 'quantity_in_stock', 'unit_price']
 
 class CategorySerializer(serializers.ModelSerializer):
+  """
+    Serializer for Category model.
+
+    Fields:
+    - id (int): The unique identifier of the category.
+    - name (str): The name of the category.
+  """
   product_count = serializers.IntegerField(read_only=True)
   class Meta:
     model = Category
     fields = ['id', 'name', 'product_count']
 
 class CustomProductSerializer(serializers.ModelSerializer):
+  """
+    Custom serializer for Products model with specific fields.
+
+    Fields:
+    - id (int): The unique identifier of the product.
+    - name (str): The name of the product.
+    - unit_price (Decimal): The unit price of the product.
+  """
   class Meta:
     model = Products
     fields = ['id', 'name', 'unit_price']
 
 class ShoppingOrderItemSerializer(serializers.ModelSerializer):
+  """
+    Serializer for ShoppingOrderItem model.
+
+    Fields:
+    - id (int): The unique identifier of the order item.
+    - products (CustomProductSerializer): The product associated with the order item.
+    - quantity (int): The quantity of the product in the order item.
+  """
   products = CustomProductSerializer()
   total_price = serializers.SerializerMethodField()
   class Meta:

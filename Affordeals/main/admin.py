@@ -1,6 +1,6 @@
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib import admin
-from .models import User
+from .models import User, profile
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
@@ -11,3 +11,6 @@ class UserAdmin(BaseUserAdmin):
           'email', 'first_name', 'last_name')
     }),
   ) 
+
+
+admin.site.register(profile)

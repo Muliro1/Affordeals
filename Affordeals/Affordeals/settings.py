@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,10 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'debug_toolbar',
     'rest_framework',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'djoser',
     'django.contrib.staticfiles',
     'store',
-    'main'
+    'main',
+    'Likes',
 ]
 
 MIDDLEWARE = [
@@ -82,17 +86,11 @@ WSGI_APPLICATION = 'Affordeals.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'affordeals_db',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': 'Password',
-        'PORT': '',
-        'OPTIONS': {
-            'unix_socket': '/var/run/mysqld/mysqld.sock',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
         },
     }
-}
+
 
 
 # Password validation
@@ -163,4 +161,9 @@ DJOSER = {
     }
 }
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = 'product'
+LOGIN_URL = 'login'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 INTERNAL_IPS = ['127.0.0.1']
