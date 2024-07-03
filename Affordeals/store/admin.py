@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db.models.aggregates import Count
 from django.utils.html import format_html, urlencode
-from .models import Products, Address, SiteUser, Category, ShoppingOrder, ShoppingOrderItem
+from .models import Products, Address, SiteUser, Category, ShoppingOrder, ShoppingOrderItem, ShoppingCart, ShoppingCartItem 
 from django.urls import reverse
 
 

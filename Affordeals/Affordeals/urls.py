@@ -28,24 +28,19 @@ admin.site.index_title = 'Admin Nathan'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', user_views.home, name='home'),
-    #path('login/', user_views.login, name='login'),
+    path('', user_views.home, name='home'),
     path('account/', user_views.account, name='account'),
     path('login/', auth_views.LoginView.as_view(template_name='main/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='main/logout.html'), name='logout'),
     path('about/', user_views.about, name='about'),
     path('products/', user_views.product_view, name='product'),
-    path('checkout/', store_views.checkout, name='checkout'),
-    path('store/', include('store.urls')),
+    path('checkout/<int:product_id>/', store_views.checkout, name='checkout'),
+    path('purchase/', store_views.purchase, name='purchase'),
+    #path('store/', include('store.urls')),
     path('auth/', include('djoser.urls')),
-<<<<<<< HEAD
-    path('auth/', include('djoser.urls.jwt'))
+    path('auth/', include('djoser.urls.jwt')),
+    path('djdt/', include('debug_toolbar.urls', namespace='djdt')),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-=======
-    path('auth/', include('djoser.urls.jwt')),
-    path('__debug__', include(debug_toolbar.urls))
-]
->>>>>>> api
