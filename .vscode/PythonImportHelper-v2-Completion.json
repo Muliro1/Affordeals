@@ -1425,7 +1425,7 @@
         "kind": 5,
         "importPath": "Affordeals.store.urls",
         "description": "Affordeals.store.urls",
-        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register('siteuser', SiteUserViewSet)\nrouter.register('product', ProductsViewSet, basename='products')\nrouter.register('category', CategoryViewSet)\nrouter.register('order', ShoppingOrderViewSet)\nrouter.register('items', ShoppingOrderItemViewSet)\nurlpatterns = [\n  path('', include(router.urls)),\n]",
+        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register('siteuser', SiteUserViewSet)\nrouter.register('getproduct', ProductsViewSet.Get_Product)\nrouter.register('addproduct', ProductsViewSet.Add_Product)\nrouter.register('category', CategoryViewSet)\nrouter.register('order', ShoppingOrderViewSet)\nrouter.register('items', ShoppingOrderItemViewSet)\nurlpatterns = [\n  path('', include(router.urls)),\n]",
         "detail": "Affordeals.store.urls",
         "documentation": {}
     },
