@@ -55,6 +55,20 @@ class CategoryViewSet(ModelViewSet):
   queryset = Category.objects.all()
   serializer_class = CategorySerializer
   permission_classes = [IsAdminOrReadOnly]
+  
+  @action(detail=False, methods=['PUT'], permission_classes=[IsAuthenticated])
+  def Add_Category(self, request):
+    (category, created) = Category.objects.get_or_create(name=request.data.name)
+    serializer = CategorySerializer(category, data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data)
+  
+  @action(detail=False, methods=['GET'], permission_classes=[IsAuthenticated])
+  def Get_Category(self, request):
+    (category, created) = Category.objects.get_or_create(name=request.data.name)
+    serializer = ProductsSerializer(category)
+    return Response(serializer.data)
 
 
 class ShoppingOrderViewSet(ModelViewSet):

@@ -1461,7 +1461,7 @@
         "kind": 6,
         "importPath": "Affordeals.store.views",
         "description": "Affordeals.store.views",
-        "peekOfCode": "class CategoryViewSet(ModelViewSet):\n  queryset = Category.objects.all()\n  serializer_class = CategorySerializer\n  permission_classes = [IsAdminOrReadOnly]\nclass ShoppingOrderViewSet(ModelViewSet):\n  queryset = ShoppingOrder.objects.all()\n  serializer_class = ShoppingOrderSerializer\n  permission_classes = [IsAuthenticated]\nclass ShoppingOrderItemViewSet(ModelViewSet):\n  queryset = ShoppingOrderItem.objects.all()",
+        "peekOfCode": "class CategoryViewSet(ModelViewSet):\n  queryset = Category.objects.all()\n  serializer_class = CategorySerializer\n  permission_classes = [IsAdminOrReadOnly]\n  @action(detail=False, methods=['PUT'], permission_classes=[IsAuthenticated])\n  def Add_Category(self, request):\n    (category, created) = Category.objects.get_or_create(name=request.data.name)\n    serializer = CategorySerializer(category, data=request.data)\n    serializer.is_valid(raise_exception=True)\n    serializer.save()",
         "detail": "Affordeals.store.views",
         "documentation": {}
     },
