@@ -73,6 +73,34 @@ class ProductsViewSet(ModelViewSet):
   permission_classes = [IsAdminOrReadOnly]
 
 
+class ShoppingCartViewSet(CreateModelMixin,
+                  RetrieveModelMixin,
+                  DestroyModelMixin,
+                  GenericViewSet):
+    queryset = ShoppingCart.objects.prefetch_related('items__product').all()
+    serializer_class = ShoppingCartSerializer
+
+
+class ShoppingCartItemViewSet(ModelViewSet):
+    http_method_names = ['get', 'post', 'patch', 'delete']
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return AddShoppingCartItemSerializer
+        elif self.request.method == 'PATCH':
+            return NewCartItemSerializer
+        return ShoppingCartItemSerializer
+
+    def get_serializer_context(self):
+        return {'cart_id': self.kwargs['cart_pk']}
+
+    def get_queryset(self):
+        return ShoppingCartItem.objects \
+            .filter(cart_id=self.kwargs['cart_pk']) \
+            .select_related('product')
+
+
+
 class CategoryViewSet(ModelViewSet):
   """
     A viewset for viewing and editing Category instances.
@@ -87,6 +115,16 @@ class CategoryViewSet(ModelViewSet):
   queryset = Category.objects.all()
   serializer_class = CategorySerializer
   permission_classes = [IsAdminOrReadOnly]
+
+class ReviewViewSet(ModelViewSet):
+    serializer_class = ReviewSerializer
+
+    def get_queryset(self):
+        return Review.objects.filter(product_id=self.kwargs['product_pk'])
+
+    def get_serializer_context(self):
+        return {'product_id': self.kwargs['product_pk']}
+
 
 class ShoppingOrderViewSet(ModelViewSet):
   http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
