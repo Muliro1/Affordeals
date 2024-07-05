@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.validators import MinValueValidator
 from django.db import models
 from uuid import uuid4
-from main.models import User, profile
+from main.models import User, Profile
 
 
 class SiteUser(models.Model):
