@@ -44,7 +44,6 @@ urlpatterns = [
     path('products/', user_views.product_view, name='product'),
     #path('/product', include(router.urls)), #added
     path('checkout/<int:product_id>/', store_views.checkout, name='checkout'),
-    path('purchase/', store_views.purchase, name='purchase'),
     path('store/', include('store.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),

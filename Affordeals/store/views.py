@@ -12,10 +12,6 @@ from .serializers import SiteUserSerializer, ProductsSerializer, CategorySeriali
                          UpdateShoppingCartItemSerializer, NewOrderSerializer, UpdateShoppingOrderSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 from django.contrib.auth.decorators import login_required
-from intasend import APIService
-
-TEST_API_TOKEN = "ISSecretKey_test_c0c0845b-c2c2-45c4-826b-1c4798d66bcf"
-TEST_PUBLISHABLE_KEY = "ISPubKey_test_da0cd304-2ffc-4197-b713-90b18c1a33e8"
 
 
 class SiteUserViewSet(ModelViewSet):
@@ -193,6 +189,7 @@ def checkout(request, product_id):
         order_item.save()
 
     context = {'orders': shopping_order, 'products': product}
+<<<<<<< HEAD
     return render(request, 'store/shoppingcart.html', {'context': context})
 
 @login_required
@@ -205,3 +202,6 @@ def purchase(request):
                                         email=user.email, amount=10, currency="KES",
                                         comment="Service Fees", redirect_url="http://example.com/thank-you")
     return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
+=======
+    return render(request, 'store/shoppingcart.html', {'context': context})
+>>>>>>> parent of 48387fa (fixes)
