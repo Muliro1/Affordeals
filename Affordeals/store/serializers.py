@@ -111,11 +111,32 @@ class ShoppingOrderSerializer(serializers.ModelSerializer):
     return sum([item.products.unit_price * item.quantity for item in order_items.items.all()])
 
 class ReviewSerializer(serializers.ModelSerializer):
+  """
+  Serializer for the Review model.
+
+  This serializer handles the serialization and deserialization
+  of the Review model's fields.
+
+  Fields:
+  - id (int): The unique identifier of the review.
+  - name (str): The name of the reviewer.
+  - description (str): The description or content of the review.
+  - date (DateTime): The date when the review was created.
+  """
   class Meta:
     model = Review
     fields = ['id', 'name', 'description', 'date']
 
   def create(self, validated_data):
+    """
+    Create a new review instance.
+
+    Args:
+    - validated_data (dict): The validated data for creating the review.
+
+    Returns:
+    - Review: The created review instance.
+    """
     products_id = self.context['products_id']
     return Review.objects.create(products_id=products_id, **validated_data)
 
