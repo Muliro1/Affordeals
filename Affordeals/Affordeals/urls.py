@@ -18,13 +18,21 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
 from main import views as user_views
+#from main.views import ProductsViewSet  # newly added
 from store import views as store_views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
+#from rest_framework_nested import routers # added
+
 
 admin.site.site_header = 'Affordeal Site'
 admin.site.index_title = 'Admin Nathan'
+
+#router = routers.DefaultRouter() #added
+ 
+#router.register('product', ProductsViewSet, basename='product')  #added
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,9 +42,10 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='main/logout.html'), name='logout'),
     path('about/', user_views.about, name='about'),
     path('products/', user_views.product_view, name='product'),
-    path('checkout/<int:product_id>/', store_views.checkout, name='checkout'),
     path('purchase/', store_views.purchase, name='purchase'),
-    #path('store/', include('store.urls')),
+    #path('/product', include(router.urls)), #added
+    path('checkout/<int:product_id>/', store_views.checkout, name='checkout'),
+    path('store/', include('store.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
     path('djdt/', include('debug_toolbar.urls', namespace='djdt')),

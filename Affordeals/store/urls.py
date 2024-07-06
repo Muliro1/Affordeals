@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework_nested import routers
 from .views import SiteUserViewSet, ProductsViewSet, CategoryViewSet, ShoppingOrderViewSet,\
-                   ShoppingOrderItemViewSet, ShoppingCartItemViewSet, ShoppingCartViewSet
+                   ShoppingOrderItemViewSet, ShoppingCartItemViewSet, ShoppingCartViewSet, ReviewViewSet
 
 
 router = routers.DefaultRouter()
