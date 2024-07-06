@@ -101,7 +101,7 @@ class SiteUserAdmin(admin.ModelAdmin):
   
   def get_queryset(self, request):
     return super().get_queryset(request).annotate(
-      orders_count=Count('order')
+      orders_count=Count('user')
     )
 
 class OrderItemInline(admin.TabularInline):

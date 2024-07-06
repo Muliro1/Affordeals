@@ -1,6 +1,7 @@
 {% extends "main/base.html"%}
 {% load crispy_forms_tags %}
 {% block content %}
+
     <style>
 
         form {
@@ -40,7 +41,7 @@ form .form-group button:hover {
     </style>
                 <h1>Welcome to Affordeals, your one stop shop <br>for affordable used and new products.</h1>
 
-
+<div class="row">
     <div class="col">
         
         <form method="POST">
@@ -55,9 +56,8 @@ form .form-group button:hover {
       </form>
         <p>Already have an account? <a href="{% url 'login' %}">Login here.</a></p>
     </div>
-          </div>
-        </div>
-    </div>
+</div>
+    
     
 
 {% endblock content %}
