@@ -235,6 +235,19 @@ class ShoppingCartItemSerializer(serializers.ModelSerializer):
     return items.product.unit_price * items.quantity
 
 class ShoppingCartSerializer(serializers.ModelSerializer):
+  """
+  Serializer for the ShoppingCart model.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingCart model's fields, including nested serialization
+  for cart items and calculating the total price.
+
+  Fields:
+  - id (UUID): The unique identifier of the shopping cart.
+  - created_at (DateTime): The timestamp when the cart was created.
+  - cartitems (ShoppingCartItem): The items in the shopping cart.
+  - total_price (float): The total price of all items in the cart.
+  """
   id = serializers.UUIDField(read_only=True)
   cartitems = ShoppingCartItemSerializer(many=True, read_only=True)
   total_price = serializers.SerializerMethodField()
