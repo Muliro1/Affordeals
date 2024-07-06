@@ -12,6 +12,11 @@ from .serializers import SiteUserSerializer, ProductsSerializer, CategorySeriali
                          UpdateShoppingCartItemSerializer, NewOrderSerializer, UpdateShoppingOrderSerializer
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 from django.contrib.auth.decorators import login_required
+from intasend import APIService
+import os
+
+TEST_API_TOKEN = os.environ.get('TEST_API_TOKEN')
+TEST_PUBLISHABLE_KEY = os.environ.get('TEST_PUBLISHABLE_KEY')
 
 
 class SiteUserViewSet(ModelViewSet):
