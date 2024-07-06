@@ -189,7 +189,6 @@ def checkout(request, product_id):
         order_item.save()
 
     context = {'orders': shopping_order, 'products': product}
-<<<<<<< HEAD
     return render(request, 'store/shoppingcart.html', {'context': context})
 
 @login_required
@@ -202,6 +201,4 @@ def purchase(request):
                                         email=user.email, amount=10, currency="KES",
                                         comment="Service Fees", redirect_url="http://example.com/thank-you")
     return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
-=======
     return render(request, 'store/shoppingcart.html', {'context': context})
->>>>>>> parent of 48387fa (fixes)
