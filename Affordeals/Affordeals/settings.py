@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@-1dum-sknsu(t+h&@zo_-4=yw77gva0tk1*w+e*khv1&$1fa!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,14 +86,10 @@ WSGI_APPLICATION = 'Affordeals.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'affordeals_db',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': 'Password',
-        'PORT': '',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
+}
 
 
 
@@ -131,7 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -171,3 +167,4 @@ LOGIN_URL = 'login'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 INTERNAL_IPS = ['127.0.0.1']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

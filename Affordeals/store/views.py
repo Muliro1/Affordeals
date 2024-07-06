@@ -13,9 +13,10 @@ from .serializers import SiteUserSerializer, ProductsSerializer, CategorySeriali
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 from django.contrib.auth.decorators import login_required
 from intasend import APIService
+import os
 
-TEST_API_TOKEN = "ISSecretKey_test_c0c0845b-c2c2-45c4-826b-1c4798d66bcf"
-TEST_PUBLISHABLE_KEY = "ISPubKey_test_da0cd304-2ffc-4197-b713-90b18c1a33e8"
+TEST_API_TOKEN = os.environ.get('TEST_API_TOKEN')
+TEST_PUBLISHABLE_KEY = os.environ.get('TEST_PUBLISHABLE_KEY')
 
 
 class SiteUserViewSet(ModelViewSet):
@@ -181,7 +182,7 @@ def checkout(request, product_id):
 
     # Create or get the shopping order for the user with 'Pending' payment status
     shopping_order, _ = ShoppingOrder.objects.get_or_create(siteuser=user, payment_status='Pending')
-
+    shopping_order.save()
     # Create or update the shopping order item
     order_item, created = ShoppingOrderItem.objects.get_or_create(
         order=shopping_order,  # Link to the shopping order
@@ -195,9 +196,13 @@ def checkout(request, product_id):
     context = {'orders': shopping_order, 'products': product}
     return render(request, 'store/shoppingcart.html', {'context': context})
 
+@login_required
 def purchase(request):
+    user = request.user
+    shopping_order = ShoppingOrder.objects.get(siteuser=user, payment_status='Pending')
+    order_items = ShoppingOrderItem.objects.filter(order=shopping_order)
     service = APIService(token=TEST_API_TOKEN, publishable_key=TEST_PUBLISHABLE_KEY, test=True)
     response = service.collect.checkout(phone_number=254727563415,
-                                        email="mulirokhaemba@gmail.com", amount=10, currency="KES",
+                                        email=user.email, amount=10, currency="KES",
                                         comment="Service Fees", redirect_url="http://example.com/thank-you")
     return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})

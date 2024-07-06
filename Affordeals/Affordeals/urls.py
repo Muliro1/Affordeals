@@ -42,9 +42,9 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='main/logout.html'), name='logout'),
     path('about/', user_views.about, name='about'),
     path('products/', user_views.product_view, name='product'),
+    path('purchase/', store_views.purchase, name='purchase'),
     #path('/product', include(router.urls)), #added
     path('checkout/<int:product_id>/', store_views.checkout, name='checkout'),
-    path('purchase/', store_views.purchase, name='purchase'),
     path('store/', include('store.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
