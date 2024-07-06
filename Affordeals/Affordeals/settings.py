@@ -91,7 +91,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'Password',
         'HOST': 'localhost',
-        'PORT': '',  # Default MySQL port
+        'PORT': '', 
     }
 }
 
