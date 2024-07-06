@@ -203,6 +203,19 @@ class AddShoppingCartItemSerializer(serializers.ModelSerializer):
 
 
 class ShoppingCartItemSerializer(serializers.ModelSerializer):
+  """
+  Serializer for the ShoppingCartItem model.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingCartItem model's fields, including calculating
+  the total price of the item.
+
+  Fields:
+  - id (int): The unique identifier of the shopping cart item.
+  - product (CustomProductSerializer): The product details.
+  - quantity (int): The quantity of the product in the cart.
+  - total_price (float): The total price of the item based on quantity.
+  """
   total_price = serializers.SerializerMethodField()
   product = CustomProductSerializer()
   class Meta:
@@ -210,6 +223,15 @@ class ShoppingCartItemSerializer(serializers.ModelSerializer):
     fields = ['id', 'product', 'quantity', 'total_price']
   
   def get_total_price(self, items: ShoppingCartItem):
+    """
+    Calculate the total price of the shopping cart item.
+
+    Args:
+    - items (ShoppingCartItem): The shopping cart item instance.
+
+    Returns:
+    - float: The total price of the item based on quantity.
+    """
     return items.product.unit_price * items.quantity
 
 class ShoppingCartSerializer(serializers.ModelSerializer):
