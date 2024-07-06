@@ -77,6 +77,21 @@ class ShoppingOrderItemSerializer(serializers.ModelSerializer):
   
 
 class ShoppingOrderSerializer(serializers.ModelSerializer):
+  """
+  Serializer for the ShoppingOrder model.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingOrder model's fields, including nested 
+  serialization for order items and calculating the total price.
+
+  Fields:
+  - id (int): The unique identifier of the shopping order.
+  - created_at (DateTime): The timestamp when the order was created.
+  - siteuser (SiteUser): The user who placed the order.
+  - items (ShoppingOrderItem): The items included in the order.
+  - payment_status (str): The current payment status of the order.
+  - total_price (float): The total price of all items in the order.
+  """
   items = ShoppingOrderItemSerializer(many=True)
   total_price = serializers.SerializerMethodField()
   class Meta:
@@ -84,6 +99,15 @@ class ShoppingOrderSerializer(serializers.ModelSerializer):
     fields = ['id', 'created_at', 'siteuser', 'items', 'payment_status', 'total_price']
 
   def get_total_price(self, order_items: ShoppingOrder):
+    """
+    Calculate the total price of all items in the order.
+
+    Args:
+    - order_items (ShoppingOrder): The shopping order instance.
+
+    Returns:
+    - float: The total price of all items in the order.
+    """
     return sum([item.products.unit_price * item.quantity for item in order_items.items.all()])
 
 class ReviewSerializer(serializers.ModelSerializer):
