@@ -256,6 +256,15 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
     fields = ['id', 'created_at', 'cartitems', 'total_price']
   
   def get_total_price(self, cart: ShoppingCart):
+    """
+    Calculate the total price of all items in the shopping cart.
+
+    Args:
+    - cart (ShoppingCart): The shopping cart instance.
+
+    Returns:
+    - float: The total price of all items in the cart.
+    """
     return sum([item.product.unit_price * item.quantity for item in cart.cartitems.all()])
 
 class UpdateShoppingCartItemSerializer(serializers.ModelSerializer):
