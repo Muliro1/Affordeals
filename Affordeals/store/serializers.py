@@ -268,15 +268,45 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
     return sum([item.product.unit_price * item.quantity for item in cart.cartitems.all()])
 
 class UpdateShoppingCartItemSerializer(serializers.ModelSerializer):
+  """
+  Serializer for updating the quantity of a shopping cart item.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingCartItem model's quantity field.
+
+  Fields:
+  - quantity (int): The quantity of the product in the cart.
+  """
   class Meta:
     model = ShoppingCartItem
     fields = ['quantity']
 
 
 class NewOrderSerializer(serializers.Serializer):
+  """
+  Serializer for creating a new shopping order.
+
+  This serializer handles the validation and saving of a new
+  shopping order based on the provided cart ID.
+
+  Fields:
+  - cart_id (UUID): The unique identifier of the shopping cart to be ordered.
+  """
   cart_id = serializers.UUIDField()
 
   def validate_cart_id(self, id):
+    """
+    Validate the cart ID.
+
+    Args:
+    - id (UUID): The cart ID to be validated.
+
+    Raises:
+    - serializers.ValidationError: If the cart ID is invalid or the cart is empty.
+
+    Returns:
+    - UUID: The validated cart ID.
+    """
     if ShoppingCart.objects.filter(pk=id) is None:
       raise serializers.ValidationError(
         f"This {id} is an invalid id."
@@ -288,6 +318,15 @@ class NewOrderSerializer(serializers.Serializer):
     return id
 
   def save(self, **kwargs):
+    """
+    Save the new shopping order.
+
+    Args:
+    - **kwargs: Additional keyword arguments.
+
+    Returns:
+    - ShoppingOrder: The created shopping order instance.
+    """
     with transaction.atomic():
       user_id = self.context['user_id']
       customer = SiteUser.objects.get(user_id=user_id)
@@ -313,7 +352,18 @@ class NewOrderSerializer(serializers.Serializer):
       ShoppingCart.objects.filter(pk=cart_id).delete()
       return my_order
 
+
+
 class UpdateShoppingOrderSerializer(serializers.ModelSerializer):
+  """
+  Serializer for updating the payment status of a shopping order.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingOrder model's payment_status field.
+
+  Fields:
+  - payment_status (str): The new payment status of the order.
+  """
   class Meta:
     model = ShoppingOrder
     fields = ['payment_status']
