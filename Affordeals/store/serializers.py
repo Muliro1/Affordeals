@@ -142,15 +142,46 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 
 class AddShoppingCartItemSerializer(serializers.ModelSerializer):
+  """
+  Serializer for adding an item to the shopping cart.
+
+  This serializer handles the validation and saving of new items
+  to the shopping cart.
+
+  Fields:
+  - product_id (int): The ID of the product to be added.
+  - quantity (int): The quantity of the product to be added.
+  """
   product_id = serializers.IntegerField()
 
   def validate_products_id(self, new_id):
+    """
+    Validate the product ID.
+
+    Args:
+    - new_id (int): The new product ID to be validated.
+
+    Raises:
+    - serializers.ValidationError: If the product ID is invalid.
+
+    Returns:
+    - int: The validated product ID.
+    """
     if Products.objects.filter(pk=new_id) is None:
       raise serializers.ValidationError(
-        f"This {products_id} is invalid id insertion.")
+        f"This {product_id} is invalid id insertion.")
       return new_id
   
   def save(self, **kwargs):
+    """
+    Save the new item to the shopping cart.
+
+    Args:
+    - **kwargs: Additional keyword arguments.
+
+    Returns:
+    - ShoppingCartItem: The saved shopping cart item instance.
+    """
     quantity = self.validated_data['quantity']
     cart_id = self.context['cart_id']
     product_id = self.validated_data['product_id']
