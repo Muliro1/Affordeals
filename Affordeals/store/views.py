@@ -181,7 +181,7 @@ def checkout(request, product_id):
     user = request.user
 
     # Create or get the shopping order for the user with 'Pending' payment status
-    shopping_order, _ = ShoppingOrder.objects.get_or_create(siteuser=user, payment_status='Pending')
+    shopping_order, _ = ShoppingOrder.objects.get_or_create(siteuser=user, payment_status='P')
     shopping_order.save()
     # Create or update the shopping order item
     order_item, created = ShoppingOrderItem.objects.get_or_create(
