@@ -15,8 +15,8 @@ from django.contrib.auth.decorators import login_required
 from intasend import APIService
 import os
 
-TEST_API_TOKEN = os.environ.get('TEST_API_TOKEN')
-TEST_PUBLISHABLE_KEY = os.environ.get('TEST_PUBLISHABLE_KEY')
+TEST_API_TOKEN = "ISSecretKey_live_00a98894-ff85-42b3-9eba-316a312e8dcf"
+TEST_PUBLISHABLE_KEY = "ISPubKey_live_67faf929-91bc-40a3-9924-fa68bf47dd0c"
 
 
 class SiteUserViewSet(ModelViewSet):
@@ -205,4 +205,5 @@ def purchase(request):
     response = service.collect.checkout(phone_number=254727563415,
                                         email=user.email, amount=10, currency="KES",
                                         comment="Service Fees", redirect_url="http://example.com/thank-you")
+    print(response)
     return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
