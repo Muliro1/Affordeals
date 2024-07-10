@@ -26,9 +26,6 @@ def home(request):
 def about(request):
     return render(request, 'main/about.html')
     
-@login_required 
-def account(request):
-    return render(request, 'main/account.html')
 
 @login_required
 def product_view(request):
