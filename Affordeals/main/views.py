@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages 
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from store.models import Products, ShoppingCart, ShoppingCartItem, ShoppingOrder
 from django.core.paginator import Paginator
@@ -38,3 +38,28 @@ def product_view(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'main/home.html', {'page_obj': page_obj})
+
+
+@login_required
+def account(request):
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST,
+                                   instance=request.user)
+        profile_form = ProfileUpdateForm(request.POST,
+                                         request.FILES,
+                                         instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, f'Your account has been successully updated!')
+            return redirect('account')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
+    
+    context = {
+            'user_form': user_form,
+            'profile_form': profile_form
+        }
+
+    return render(request, 'main/account.html', context)    

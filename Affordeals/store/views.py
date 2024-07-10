@@ -206,9 +206,7 @@ def purchase(request):
     order_items = ShoppingOrderItem.objects.filter(order=shopping_order)
 
     # Initialize Stripe with your API keys
-    print('Initialize Stripe with your API keys')
     stripe.api_key = STRIPE_SECRET_KEY
-    print('Create a payment intent')
     # Create a payment intent
     payment_intent = stripe.PaymentIntent.create(
         amount=1000,  # Amount in cents (e.g., $10.00)
@@ -216,7 +214,6 @@ def purchase(request):
         description='Service Fees',
         metadata={'order_id': shopping_order.id},
     )
-    print('Done Payment')
 
     return render(request, 'store/purchase.html', {'client_secret': payment_intent.client_secret})
 
