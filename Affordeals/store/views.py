@@ -15,8 +15,8 @@ from django.contrib.auth.decorators import login_required
 from intasend import APIService
 import os
 
-TEST_API_TOKEN = os.environ.get('TEST_API_TOKEN')
-TEST_PUBLISHABLE_KEY = os.environ.get('TEST_PUBLISHABLE_KEY')
+TEST_API_TOKEN = 'ISSecretKey_live_5ea3e1c7-a936-4f12-bc9b-eb97757f5c2c'
+TEST_PUBLISHABLE_KEY = 'ISPubKey_live_67faf929-91bc-40a3-9924-fa68bf47dd0c'
 
 
 class SiteUserViewSet(ModelViewSet):
