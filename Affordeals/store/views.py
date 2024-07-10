@@ -198,25 +198,7 @@ def checkout(request, product_id):
 
     context = {'orders': shopping_order, 'products': product}
     return render(request, 'store/shoppingcart.html', {'context': context})
-
-
-# STRIPE_SECRET_KEY = ''
-
-# @login_required
-# def purchase(request):
-#     user = request.user
-#     print('Testing  #0')
-#     shopping_order = ShoppingOrder.objects.get(siteuser=user, payment_status='P')
-#     order_items = ShoppingOrderItem.objects.filter(order=shopping_order)
-#     print("Testing #1")
-#     service = APIService(token=STRIPE_SECRET_KEY, publishable_key='', test=True)
-#     print('Testing  #2')
-#     response = service.collect.checkout(
-#                                         email=user.email, amount=10, currency="USD",
-#                                         comment="Service Fees", redirect_url="http://example.com/thank-you")
-#     print('Testing #3')
-#     return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')}) 
-
+  
 @login_required
 def purchase(request):
     user = request.user
