@@ -49,6 +49,9 @@ urlpatterns = [
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
     path('djdt/', include('debug_toolbar.urls', namespace='djdt')),
+    path('success/', store_views.success, name='success'),
+    path('cancel/', store_views.cancel, name='cancel'),
+    #path('create-payment-intent/', store_views.create_payment_intent, name='create-payment-intent'),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

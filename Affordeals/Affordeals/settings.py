@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+from decouple import config
 from pathlib import Path
 from datetime import timedelta
 import os
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-@-1dum-sknsu(t+h&@zo_-4=yw77gva0tk1*w+e*khv1&$1fa!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'djoser',
+    'decouple',
+    'stripe',
     'django.contrib.staticfiles',
     'store',
     'main',

@@ -13,10 +13,13 @@ from .serializers import SiteUserSerializer, ProductsSerializer, CategorySeriali
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 from django.contrib.auth.decorators import login_required
 from intasend import APIService
+import stripe
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import os
 
-TEST_API_TOKEN = os.environ.get('TEST_API_TOKEN')
-TEST_PUBLISHABLE_KEY = os.environ.get('TEST_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = 'sk_test_51Pa1aDRw3YBmtwIna3J9hMuLqxyQaTOIbNSyjlRc7eVvO67PQif21IKpqFyN79im9XKmTS0Zlb7h8s26sg87nbgh00nBClsRtJ'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51Pa1aDRw3YBmtwInaQ7ANc6qwpBREhTDp56IZuhpv3Urq0qWLcPcCtdbadPhPk3xP1mTutizJFA1pP6v1lth8vC700jO9pXTB3'
 
 
 class SiteUserViewSet(ModelViewSet):
@@ -184,7 +187,7 @@ def checkout(request, product_id):
     shopping_order, _ = ShoppingOrder.objects.get_or_create(siteuser=user, payment_status='P')
     shopping_order.save()
     # Create or update the shopping order item
-    order_item, created = ShoppingOrderItem.objects.get_or_create(
+    (order_item, created) = ShoppingOrderItem.objects.get_or_create(
         order=shopping_order,  # Link to the shopping order
         products=product,  # Link to the product
         defaults={'quantity': 1, 'unit_price': product.unit_price}  # Default values for new item
@@ -196,13 +199,47 @@ def checkout(request, product_id):
     context = {'orders': shopping_order, 'products': product}
     return render(request, 'store/shoppingcart.html', {'context': context})
 
+
+# STRIPE_SECRET_KEY = ''
+
+# @login_required
+# def purchase(request):
+#     user = request.user
+#     print('Testing  #0')
+#     shopping_order = ShoppingOrder.objects.get(siteuser=user, payment_status='P')
+#     order_items = ShoppingOrderItem.objects.filter(order=shopping_order)
+#     print("Testing #1")
+#     service = APIService(token=STRIPE_SECRET_KEY, publishable_key='', test=True)
+#     print('Testing  #2')
+#     response = service.collect.checkout(
+#                                         email=user.email, amount=10, currency="USD",
+#                                         comment="Service Fees", redirect_url="http://example.com/thank-you")
+#     print('Testing #3')
+#     return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')}) 
+
 @login_required
 def purchase(request):
     user = request.user
-    shopping_order = ShoppingOrder.objects.get(siteuser=user, payment_status='Pending')
+    shopping_order = ShoppingOrder.objects.get(siteuser=user, payment_status='P')
     order_items = ShoppingOrderItem.objects.filter(order=shopping_order)
-    service = APIService(token=TEST_API_TOKEN, publishable_key=TEST_PUBLISHABLE_KEY, test=True)
-    response = service.collect.checkout(phone_number=254727563415,
-                                        email=user.email, amount=10, currency="KES",
-                                        comment="Service Fees", redirect_url="http://example.com/thank-you")
-    return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
+
+    # Initialize Stripe with your API keys
+    print('Initialize Stripe with your API keys')
+    stripe.api_key = STRIPE_SECRET_KEY
+    print('Create a payment intent')
+    # Create a payment intent
+    payment_intent = stripe.PaymentIntent.create(
+        amount=1000,  # Amount in cents (e.g., $10.00)
+        currency='usd',
+        description='Service Fees',
+        metadata={'order_id': shopping_order.id},
+    )
+    print('Done Payment')
+
+    return render(request, 'store/purchase.html', {'client_secret': payment_intent.client_secret})
+
+def success(request): #Added
+  return render(request, 'store/success.html')
+
+def cancel(request):  # Added
+  return render(request, 'store/cancel.html')
