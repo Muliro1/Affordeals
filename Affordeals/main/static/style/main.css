@@ -1,0 +1,30 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+.wrapper {
+  flex: 1;
+}
+
+.icon-hover:hover {
+border-color: #3b71ca !important;
+background-color: white !important;
+}
+
+.icon-hover:hover i {
+color: #3b71ca !important;
+}
