@@ -67,3 +67,17 @@ footer {
 .form-group button:hover, form .form-group button:hover {
   background-color: #0069d9;
 }
+
+/* Ensuring the logout button looks the same as the profile link */
+.btn-link.nav-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.btn-link.nav-link:hover {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+}

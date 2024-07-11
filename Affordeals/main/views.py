@@ -14,7 +14,7 @@ from store.permissions import IsAdminOrReadOnly
 ### Testing ###
 def register(request):
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
