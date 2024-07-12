@@ -18,8 +18,13 @@ Affordeals is a Django web application that provides a platform for users to buy
 
 Here are screenshots that show the E-commerce demo application in use.
 
+**Home Page**
+![Home Page](/screenshots/HomePage.png)
+
+
 **User Registration Page**
 ![SignUp Page](/screenshots/SignUp.png)
+
 
 ## Getting Started
 
