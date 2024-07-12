@@ -22,8 +22,12 @@ Here are screenshots that show the E-commerce demo application in use.
 ![Home Page](/screenshots/HomePage.png)
 
 
-**User Registration Page**
+**User Registration**
 ![SignUp Page](/screenshots/SignUp.png)
+
+
+**Shopping Cart**
+![Shopping Cart](/screenshots/ShoppingCart.png)
 
 
 ## Getting Started
