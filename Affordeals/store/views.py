@@ -18,6 +18,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import os
 
+
 STRIPE_SECRET_KEY = 'sk_test_51Pa1aDRw3YBmtwIna3J9hMuLqxyQaTOIbNSyjlRc7eVvO67PQif21IKpqFyN79im9XKmTS0Zlb7h8s26sg87nbgh00nBClsRtJ'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51Pa1aDRw3YBmtwInaQ7ANc6qwpBREhTDp56IZuhpv3Urq0qWLcPcCtdbadPhPk3xP1mTutizJFA1pP6v1lth8vC700jO9pXTB3'
 

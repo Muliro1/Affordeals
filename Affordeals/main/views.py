@@ -39,7 +39,7 @@ def about(request):
 def product_view(request):
     products = Products.objects.all()
     ordered_products = products.order_by('category_id')
-    paginator = Paginator(ordered_products, 12)
+    paginator = Paginator(ordered_products, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'main/home.html', {'page_obj': page_obj})
