@@ -214,7 +214,7 @@ def purchase(request):
         description='Service Fees',
         metadata={'order_id': shopping_order.id},
     )
-    print("Paymnet complete")
+    print("Paymnet completed")
 
     return render(request, 'store/purchase.html', {'client_secret': payment_intent.client_secret})
 
