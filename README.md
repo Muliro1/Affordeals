@@ -46,4 +46,16 @@ These instructions will get you a copy of the project up and running on your loc
 3. install project dependencies with "pip install -r requirements.txt"
 
 
+## Technologies Used
+* Django
+* MySQL
+* Bootstrap
+* HTML5 & CSS3
 
+
+## Contributions
+We welcome contributions from the community. Kindly reach out to us if you have any questions or feedbacks:
+
+- Email: [Emmanuel](mailto:christorenzo20@gmail.com)
+- Twitter: [Nathan](https://x.com/nattthy954)
+- GitHub: [Michael](https://github.com/Muliro1)
