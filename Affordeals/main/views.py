@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages 
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from store.models import Products, ShoppingCart, ShoppingCartItem, ShoppingOrder
 from django.core.paginator import Paginator
@@ -9,28 +9,33 @@ from django.core.paginator import Paginator
 from store.serializers import ProductsSerializer
 from rest_framework.viewsets import ModelViewSet
 from store.permissions import IsAdminOrReadOnly
-# Create your views here.
 
-def home(request):
+
+### Testing ###
+def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!, you are now able to login')
+            messages.success(request, f'Your account has been created! You are now able to log in, {username}!')
             return redirect('login')
+        else:
+            print("Form is not valid")
+            print(form.errors)  # Print form errors for debugging
     else:
-        form = CustomUserCreationForm(request.POST)
-    return render(request, 'main/index.html', {'form': form})
+        form = CustomUserCreationForm()
+    return render(request, 'main/register.html', {'form': form})
+
+
+def home(request):   
+    return render(request, 'main/home.html')
 
 def about(request):
     return render(request, 'main/about.html')
     
-@login_required 
-def account(request):
-    return render(request, 'main/account.html')
 
-@login_required
+
 def product_view(request):
     products = Products.objects.all()
     ordered_products = products.order_by('category_id')
@@ -40,19 +45,26 @@ def product_view(request):
     return render(request, 'main/home.html', {'page_obj': page_obj})
 
 
+@login_required
+def account(request):
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST,
+                                   instance=request.user)
+        profile_form = ProfileUpdateForm(request.POST,
+                                         request.FILES,
+                                         instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, f'Your account has been successully updated!')
+            return redirect('account')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
+    
+    context = {
+            'user_form': user_form,
+            'profile_form': profile_form
+        }
 
-# class ProductsViewSet(ModelViewSet):
-#   """
-#     A viewset for viewing and editing Product instances.
-
-#     Attributes:
-#     - queryset (QuerySet): The queryset for retrieving Product instances.
-#     - serializer_class (Serializer): The serializer class to use
-#       for Product instances.
-#     - permission_classes (list): The permission classes to apply
-#       to this viewset.
-#   """
-#   queryset = Products.objects.all()
-#   serializer_class = ProductsSerializer
-#   permission_classes = [IsAdminOrReadOnly]
-
+    return render(request, 'main/account.html', context)    

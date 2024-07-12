@@ -1,66 +1,26 @@
 {% extends "main/base.html" %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} 
 {% block content %}
-  
-            <title>User Login Form</title>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <style>
-              body {
-                background-color: #f8f9fa;
-              }
-              .form-container {
-                background-color: #ffffff;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-              }
-              .form-container h2 {
-                text-align: center;
-                color: #343a40;
-              }
-              .form-group label {
-                color: #343a40;
-              }
-              .form-group input {
-                background-color: #e9ecef;
-                border: none;
-                border-radius: 5px;
-                padding: 10px;
-              }
-              .form-group button {
-                background-color: #007bff;
-                color: #ffffff;
-                border: none;
-                border-radius: 5px;
-                padding: 10px 20px;
-              }
-              .form-group button:hover {
-                background-color: #0069d9;
-              }
-            </style>
-          </head>
-          <body>
+<div class="content-section">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Log In</legend>
+      {{ form|crispy }}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Login</button>
+      <small class="text-muted ml-2">
+          <a href="{% url 'password_reset' %}">Forgot Password?</a>
+      </small>
 
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-md-6">
-                  <div class="form-container">
-                    <h2>User Login</h2>
-                    <form method="POST">
-                      {% csrf_token %}
-                      {{ form|crispy }}
-                      <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-        </div>
     </div>
-    
+  </form>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Need An Account?
+      <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+    </small>
+  </div>
+</div>
 {% endblock content %}
