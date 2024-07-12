@@ -42,9 +42,23 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installation
 
 1. Clone the repository
-2. create a virtual environment and activate it.
-3. install project dependencies with "pip install -r requirements.txt"
-
+2. Create a virtual environment and activate it.
+3. Install project dependencies:
+```bash
+pip install -r requirements.txt
+```
+4. Set up the database:
+```bash
+python manage.py migrate
+```
+5. Create a superuser:
+```bash
+python manage.py createsuperuser
+```
+6. Run the development server:
+```bash
+python manage.py runserver
+```
 
 ## Technologies Used
 * Django
