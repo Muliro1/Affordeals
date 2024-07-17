@@ -77,6 +77,21 @@ class ShoppingOrderItemSerializer(serializers.ModelSerializer):
   
 
 class ShoppingOrderSerializer(serializers.ModelSerializer):
+  """
+  Serializer for the ShoppingOrder model.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingOrder model's fields, including nested 
+  serialization for order items and calculating the total price.
+
+  Fields:
+  - id (int): The unique identifier of the shopping order.
+  - created_at (DateTime): The timestamp when the order was created.
+  - siteuser (SiteUser): The user who placed the order.
+  - items (ShoppingOrderItem): The items included in the order.
+  - payment_status (str): The current payment status of the order.
+  - total_price (float): The total price of all items in the order.
+  """
   items = ShoppingOrderItemSerializer(many=True)
   total_price = serializers.SerializerMethodField()
   class Meta:
@@ -84,28 +99,89 @@ class ShoppingOrderSerializer(serializers.ModelSerializer):
     fields = ['id', 'created_at', 'siteuser', 'items', 'payment_status', 'total_price']
 
   def get_total_price(self, order_items: ShoppingOrder):
+    """
+    Calculate the total price of all items in the order.
+
+    Args:
+    - order_items (ShoppingOrder): The shopping order instance.
+
+    Returns:
+    - float: The total price of all items in the order.
+    """
     return sum([item.products.unit_price * item.quantity for item in order_items.items.all()])
 
 class ReviewSerializer(serializers.ModelSerializer):
+  """
+  Serializer for the Review model.
+
+  This serializer handles the serialization and deserialization
+  of the Review model's fields.
+
+  Fields:
+  - id (int): The unique identifier of the review.
+  - name (str): The name of the reviewer.
+  - description (str): The description or content of the review.
+  - date (DateTime): The date when the review was created.
+  """
   class Meta:
     model = Review
     fields = ['id', 'name', 'description', 'date']
 
   def create(self, validated_data):
+    """
+    Create a new review instance.
+
+    Args:
+    - validated_data (dict): The validated data for creating the review.
+
+    Returns:
+    - Review: The created review instance.
+    """
     products_id = self.context['products_id']
     return Review.objects.create(products_id=products_id, **validated_data)
 
 
 class AddShoppingCartItemSerializer(serializers.ModelSerializer):
+  """
+  Serializer for adding an item to the shopping cart.
+
+  This serializer handles the validation and saving of new items
+  to the shopping cart.
+
+  Fields:
+  - product_id (int): The ID of the product to be added.
+  - quantity (int): The quantity of the product to be added.
+  """
   product_id = serializers.IntegerField()
 
   def validate_products_id(self, new_id):
+    """
+    Validate the product ID.
+
+    Args:
+    - new_id (int): The new product ID to be validated.
+
+    Raises:
+    - serializers.ValidationError: If the product ID is invalid.
+
+    Returns:
+    - int: The validated product ID.
+    """
     if Products.objects.filter(pk=new_id) is None:
       raise serializers.ValidationError(
-        f"This {products_id} is invalid id insertion.")
+        f"This {product_id} is invalid id insertion.")
       return new_id
   
   def save(self, **kwargs):
+    """
+    Save the new item to the shopping cart.
+
+    Args:
+    - **kwargs: Additional keyword arguments.
+
+    Returns:
+    - ShoppingCartItem: The saved shopping cart item instance.
+    """
     quantity = self.validated_data['quantity']
     cart_id = self.context['cart_id']
     product_id = self.validated_data['product_id']
@@ -127,6 +203,19 @@ class AddShoppingCartItemSerializer(serializers.ModelSerializer):
 
 
 class ShoppingCartItemSerializer(serializers.ModelSerializer):
+  """
+  Serializer for the ShoppingCartItem model.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingCartItem model's fields, including calculating
+  the total price of the item.
+
+  Fields:
+  - id (int): The unique identifier of the shopping cart item.
+  - product (CustomProductSerializer): The product details.
+  - quantity (int): The quantity of the product in the cart.
+  - total_price (float): The total price of the item based on quantity.
+  """
   total_price = serializers.SerializerMethodField()
   product = CustomProductSerializer()
   class Meta:
@@ -134,9 +223,31 @@ class ShoppingCartItemSerializer(serializers.ModelSerializer):
     fields = ['id', 'product', 'quantity', 'total_price']
   
   def get_total_price(self, items: ShoppingCartItem):
+    """
+    Calculate the total price of the shopping cart item.
+
+    Args:
+    - items (ShoppingCartItem): The shopping cart item instance.
+
+    Returns:
+    - float: The total price of the item based on quantity.
+    """
     return items.product.unit_price * items.quantity
 
 class ShoppingCartSerializer(serializers.ModelSerializer):
+  """
+  Serializer for the ShoppingCart model.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingCart model's fields, including nested serialization
+  for cart items and calculating the total price.
+
+  Fields:
+  - id (UUID): The unique identifier of the shopping cart.
+  - created_at (DateTime): The timestamp when the cart was created.
+  - cartitems (ShoppingCartItem): The items in the shopping cart.
+  - total_price (float): The total price of all items in the cart.
+  """
   id = serializers.UUIDField(read_only=True)
   cartitems = ShoppingCartItemSerializer(many=True, read_only=True)
   total_price = serializers.SerializerMethodField()
@@ -145,18 +256,57 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
     fields = ['id', 'created_at', 'cartitems', 'total_price']
   
   def get_total_price(self, cart: ShoppingCart):
+    """
+    Calculate the total price of all items in the shopping cart.
+
+    Args:
+    - cart (ShoppingCart): The shopping cart instance.
+
+    Returns:
+    - float: The total price of all items in the cart.
+    """
     return sum([item.product.unit_price * item.quantity for item in cart.cartitems.all()])
 
 class UpdateShoppingCartItemSerializer(serializers.ModelSerializer):
+  """
+  Serializer for updating the quantity of a shopping cart item.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingCartItem model's quantity field.
+
+  Fields:
+  - quantity (int): The quantity of the product in the cart.
+  """
   class Meta:
     model = ShoppingCartItem
     fields = ['quantity']
 
 
 class NewOrderSerializer(serializers.Serializer):
+  """
+  Serializer for creating a new shopping order.
+
+  This serializer handles the validation and saving of a new
+  shopping order based on the provided cart ID.
+
+  Fields:
+  - cart_id (UUID): The unique identifier of the shopping cart to be ordered.
+  """
   cart_id = serializers.UUIDField()
 
   def validate_cart_id(self, id):
+    """
+    Validate the cart ID.
+
+    Args:
+    - id (UUID): The cart ID to be validated.
+
+    Raises:
+    - serializers.ValidationError: If the cart ID is invalid or the cart is empty.
+
+    Returns:
+    - UUID: The validated cart ID.
+    """
     if ShoppingCart.objects.filter(pk=id) is None:
       raise serializers.ValidationError(
         f"This {id} is an invalid id."
@@ -168,6 +318,15 @@ class NewOrderSerializer(serializers.Serializer):
     return id
 
   def save(self, **kwargs):
+    """
+    Save the new shopping order.
+
+    Args:
+    - **kwargs: Additional keyword arguments.
+
+    Returns:
+    - ShoppingOrder: The created shopping order instance.
+    """
     with transaction.atomic():
       user_id = self.context['user_id']
       customer = SiteUser.objects.get(user_id=user_id)
@@ -193,7 +352,18 @@ class NewOrderSerializer(serializers.Serializer):
       ShoppingCart.objects.filter(pk=cart_id).delete()
       return my_order
 
+
+
 class UpdateShoppingOrderSerializer(serializers.ModelSerializer):
+  """
+  Serializer for updating the payment status of a shopping order.
+
+  This serializer handles the serialization and deserialization
+  of the ShoppingOrder model's payment_status field.
+
+  Fields:
+  - payment_status (str): The new payment status of the order.
+  """
   class Meta:
     model = ShoppingOrder
     fields = ['payment_status']

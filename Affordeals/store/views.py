@@ -13,10 +13,19 @@ from .serializers import SiteUserSerializer, ProductsSerializer, CategorySeriali
 from store.permissions import IsAdminOrReadOnly, FullPermissions
 from django.contrib.auth.decorators import login_required
 from intasend import APIService
+import stripe
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import os
 
+<<<<<<< HEAD
 TEST_API_TOKEN = "ISSecretKey_live_00a98894-ff85-42b3-9eba-316a312e8dcf"
 TEST_PUBLISHABLE_KEY = "ISPubKey_live_67faf929-91bc-40a3-9924-fa68bf47dd0c"
+=======
+
+STRIPE_SECRET_KEY = 'sk_test_51Pa1aDRw3YBmtwIna3J9hMuLqxyQaTOIbNSyjlRc7eVvO67PQif21IKpqFyN79im9XKmTS0Zlb7h8s26sg87nbgh00nBClsRtJ'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51Pa1aDRw3YBmtwInaQ7ANc6qwpBREhTDp56IZuhpv3Urq0qWLcPcCtdbadPhPk3xP1mTutizJFA1pP6v1lth8vC700jO9pXTB3'
+>>>>>>> 9e501a684f142f8d322dbb16580ef6fb5615a3fa
 
 
 class SiteUserViewSet(ModelViewSet):
@@ -181,10 +190,10 @@ def checkout(request, product_id):
     user = request.user
 
     # Create or get the shopping order for the user with 'Pending' payment status
-    shopping_order, _ = ShoppingOrder.objects.get_or_create(siteuser=user, payment_status='Pending')
+    shopping_order, _ = ShoppingOrder.objects.get_or_create(siteuser=user, payment_status='P')
     shopping_order.save()
     # Create or update the shopping order item
-    order_item, created = ShoppingOrderItem.objects.get_or_create(
+    (order_item, created) = ShoppingOrderItem.objects.get_or_create(
         order=shopping_order,  # Link to the shopping order
         products=product,  # Link to the product
         defaults={'quantity': 1, 'unit_price': product.unit_price}  # Default values for new item
@@ -195,15 +204,37 @@ def checkout(request, product_id):
 
     context = {'orders': shopping_order, 'products': product}
     return render(request, 'store/shoppingcart.html', {'context': context})
-
+  
 @login_required
 def purchase(request):
     user = request.user
-    shopping_order = ShoppingOrder.objects.get(siteuser=user, payment_status='Pending')
+    shopping_order = ShoppingOrder.objects.get(siteuser=user, payment_status='P')
     order_items = ShoppingOrderItem.objects.filter(order=shopping_order)
+<<<<<<< HEAD
     service = APIService(token=TEST_API_TOKEN, publishable_key=TEST_PUBLISHABLE_KEY, test=True)
     response = service.collect.checkout(phone_number=254727563415,
                                         email=user.email, amount=10, currency="KES",
                                         comment="Service Fees", redirect_url="http://example.com/thank-you")
     print(response)
     return render(request, 'store/purchase.html', {'payment_url': response.get('url', '')})
+=======
+
+    # Initialize Stripe with your API keys
+    stripe.api_key = STRIPE_SECRET_KEY
+    # Create a payment intent
+    payment_intent = stripe.PaymentIntent.create(
+        amount=1000,  # Amount in cents (e.g., $10.00)
+        currency='usd',
+        description='Service Fees',
+        metadata={'order_id': shopping_order.id},
+    )
+    print("Paymnet completed")
+
+    return render(request, 'store/purchase.html', {'client_secret': payment_intent.client_secret})
+
+def success(request): #Added
+  return render(request, 'store/success.html')
+
+def cancel(request):  # Added
+  return render(request, 'store/cancel.html')
+>>>>>>> 9e501a684f142f8d322dbb16580ef6fb5615a3fa

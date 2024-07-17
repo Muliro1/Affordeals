@@ -8,3 +8,4 @@ Pipfile.lock
 z_jwt_token
 *.venv
 
+.vscode
