@@ -7,10 +7,28 @@ Affordeals is a Django web application that provides a platform for users to buy
 
 ## Features
 
-- User registration and authentication
-- Product listing and search
-- User profile management
-- Product reviews and ratings
+- User Registration and Authentication
+- Product Listing and Search
+- User Profile Management
+- Admin Dashboard Management
+- Shopping Cart and Checkout Process
+- Payment Gateway Integration
+
+## Live Demonstrations
+
+Here are screenshots that show the E-commerce demo application in use.
+
+**Home Page**
+![Home Page](/screenshots/HomePage.png)
+
+
+**User Registration**
+![SignUp Page](/screenshots/SignUp.png)
+
+
+**Shopping Cart**
+![Shopping Cart](/screenshots/ShoppingCart.png)
+
 
 ## Getting Started
 
@@ -24,8 +42,34 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installation
 
 1. Clone the repository
-2. create a virtual environment and activate it.
-3. install project dependencies with "pip install -r requirements.txt"
+2. Create a virtual environment and activate it.
+3. Install project dependencies:
+```bash
+pip install -r requirements.txt
+```
+4. Set up the database:
+```bash
+python manage.py migrate
+```
+5. Create a superuser:
+```bash
+python manage.py createsuperuser
+```
+6. Run the development server:
+```bash
+python manage.py runserver
+```
+
+## Technologies Used
+* Django
+* MySQL
+* Bootstrap
+* HTML5 & CSS3
 
 
+## Contributions
+We welcome contributions from the community. Kindly reach out to us if you have any questions or feedbacks:
 
+- Email: [Emmanuel](mailto:christorenzo20@gmail.com)
+- Twitter: [Nathan](https://x.com/nattthy954)
+- GitHub: [Michael](https://github.com/Muliro1)
