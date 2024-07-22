@@ -232,3 +232,7 @@ def success(request): #Added
 
 def cancel(request):  # Added
   return render(request, 'store/cancel.html')
+
+def logout(request):
+  auth_logout(request)
+  return render(request, 'store/logout.html')
