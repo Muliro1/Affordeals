@@ -232,7 +232,11 @@ def success(request): #Added
 
 def cancel(request):  # Added
   return render(request, 'store/cancel.html')
+from django.contrib.auth import logout as auth_logout
+from django.views.decorators.http import require_POST
 
+@login_required
+@require_POST
 def logout(request):
   auth_logout(request)
-  return render(request, 'store/logout.html')
+  return render(request, 'main/logout.html')
