@@ -18,7 +18,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import os
 
-TEST_API_TOKEN = "ISSecretKey_live_00a98894-ff85-42b3-9eba-316a312e8dcf"
+TEST_API_TOKEN = "ISSecretKey_live_7f5881a5-038b-477a-9ffb-a5b4871e0264"
 TEST_PUBLISHABLE_KEY = "ISPubKey_live_67faf929-91bc-40a3-9924-fa68bf47dd0c"
 
 STRIPE_SECRET_KEY = 'sk_test_51Pa1aDRw3YBmtwIna3J9hMuLqxyQaTOIbNSyjlRc7eVvO67PQif21IKpqFyN79im9XKmTS0Zlb7h8s26sg87nbgh00nBClsRtJ'
